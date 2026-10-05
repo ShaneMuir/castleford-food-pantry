@@ -26,7 +26,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>The pantry is hosted by <strong>GLOW</strong>, who generously provide space in their churches so we can run our sessions. GLOW does not run the pantry. It is a community effort powered by local volunteers.</p>
+<p>The pantry is supported by <strong>GLOW</strong>, who generously provide space in their churches so we can run our sessions. GLOW does not run the pantry. It is a community effort powered by local volunteers.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"cfp-eyebrow"} -->

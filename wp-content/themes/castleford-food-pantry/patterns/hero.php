@@ -29,7 +29,7 @@ $home = esc_url( home_url( '/' ) );
 					<source src="<?php echo cfp_asset( 'video/castleford-food-pantry-video.mp4' ); ?>" type="video/mp4" />
 				</video>
 			</div>
-			<div class="cfp-hero__badge"><img src="<?php echo cfp_asset( 'images/logo-badge.svg' ); ?>" width="400" height="400" alt="Castleford Community Food Pantry, hosted by GLOW" /></div>
+			<div class="cfp-hero__badge"><img src="<?php echo cfp_asset( 'images/logo-badge.svg' ); ?>" width="400" height="400" alt="Castleford Community Food Pantry, supported by GLOW" /></div>
 		</div>
 	</div>
 </section>

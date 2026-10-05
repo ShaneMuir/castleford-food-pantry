@@ -12,7 +12,7 @@ $home = esc_url( home_url( '/' ) );
 <div class="cfp-glowbar" aria-hidden="true"></div>
 <div class="cfp-footer__inner">
 	<div>
-		<img src="<?php echo cfp_asset( 'images/logo-banner.svg' ); ?>" width="260" height="130" alt="Castleford Community Food Pantry, hosted by GLOW" style="max-width:260px;height:auto;border-radius:1rem" loading="lazy" />
+		<img src="<?php echo cfp_asset( 'images/logo-banner.svg' ); ?>" width="260" height="130" alt="Castleford Community Food Pantry, supported by GLOW" style="max-width:260px;height:auto;border-radius:1rem" loading="lazy" />
 		<p style="margin-top:1.25rem"><?php esc_html_e( 'Together we can reduce waste, feed people, build community.', 'castleford-food-pantry' ); ?></p>
 		<?php echo cfp_glow_wordmark( 'cfp-glow--on-dark' ); ?>
 	</div>
@@ -37,6 +37,6 @@ $home = esc_url( home_url( '/' ) );
 		</ul>
 	</div>
 </div>
-<p class="cfp-footer__legal">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Castleford Community Food Pantry. The pantry is hosted by GLOW, who kindly provide space in their churches. GLOW does not run the pantry.</p>
+<p class="cfp-footer__legal">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Castleford Community Food Pantry. The pantry is supported by GLOW, who kindly provide space in their churches. GLOW does not run the pantry.</p>
 <!-- /wp:html --></footer>
 <!-- /wp:group -->

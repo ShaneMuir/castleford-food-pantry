@@ -37,9 +37,9 @@ The tone and structure follow established UK community-charity sites — a warm 
 
 Three candidates exist in `website-images/`:
 
-- `v2-1-castle-sun-glow.svg` — horizontal lockup: sun/castle mark, "Castleford / FOOD PANTRY", and a "RUN BY GLOW" pill.
+- `v2-1-castle-sun-glow.svg` — horizontal lockup: sun/castle mark, "Castleford / FOOD PANTRY", and a "SUPPORTED BY GLOW" pill.
 - `v2-2-badge-glow.svg` — circular GLOW badge: "CASTLEFORD COMMUNITY · FOOD PANTRY" curved around a central GLOW mark.
-- `v2-3-battlement-glow.svg` — castle-battlement banner shape with a "RUN BY GLOW" footer bar.
+- `v2-3-battlement-glow.svg` — castle-battlement banner shape with a "SUPPORTED BY GLOW" footer bar.
 
 **Recommendation: the circular GLOW badge (`v2-2-badge-glow.svg`) is the authentic brand mark and is the primary identity.** The real flyer uses this circular badge — "CASTLEFORD COMMUNITY · FOOD PANTRY" curved around a central GLOW mark — as its hero brand mark, with the wordmark set as "CASTLEFORD COMMUNITY" (navy) / "FOOD" (orange-red) / "PANTRY" (purple). Because this matches the pantry's actual, published identity, the design treats it as the real brand mark. Rationale:
 
@@ -47,7 +47,7 @@ Three candidates exist in `website-images/`:
 - Its square format (400×400) is ideal as the **primary hero identity mark, favicon, and Open Graph / social-share image**.
 - It presents the organization name, the "FOOD PANTRY" descriptor, and the multicolor GLOW mark together, supporting Req 3.1, 10.2, and 10.3.
 
-**Practical header note:** a square badge forces either a small or an oversized header on wide viewports, so the horizontal lockup (`v2-1-castle-sun-glow.svg`, 580×200) is used as the **header lockup where a wide format is needed** — it scales down for mobile without the text becoming unreadable while still presenting the mark, name, and "RUN BY GLOW" attribution. `v2-3-battlement-glow.svg` is retained as an **alternate footer banner** option. All three SVGs remain available in the theme, and all use the four GLOW letter colors correctly, so any can satisfy Req 2.6.
+**Practical header note:** a square badge forces either a small or an oversized header on wide viewports, so the horizontal lockup (`v2-1-castle-sun-glow.svg`, 580×200) is used as the **header lockup where a wide format is needed** — it scales down for mobile without the text becoming unreadable while still presenting the mark, name, and "SUPPORTED BY GLOW" attribution. `v2-3-battlement-glow.svg` is retained as an **alternate footer banner** option. All three SVGs remain available in the theme, and all use the four GLOW letter colors correctly, so any can satisfy Req 2.6.
 
 ## Architecture
 
@@ -188,7 +188,7 @@ Each template is an HTML file of block markup. Every template references the sam
 **Site_Header (`parts/header.html`)**
 
 - Skip link (first focusable element, targets `#main`) — Req 12.7.
-- Site logo block linked to home, alt text "Castleford Community Food Pantry, run by GLOW" — Req 3.1, 10.3. The header uses the horizontal lockup (`v2-1`) where a wide format is needed, while the circular GLOW badge (`v2-2`) is the primary brand mark / favicon / social image.
+- Site logo block linked to home, alt text "Castleford Community Food Pantry, supported by GLOW" — Req 3.1, 10.3. The header uses the horizontal lockup (`v2-1`) where a wide format is needed, while the circular GLOW badge (`v2-2`) is the primary brand mark / favicon / social image.
 - Primary_Navigation block (core `navigation`) with entries for each section — Req 3.2.
 - Persistent support CTA button linking to the Support / Get Involved section (anchor `#donate`) — Req 3.5.
 - Navigation collapses to a menu control at ≤782px via the core navigation block's responsive overlay — Req 3.4.
@@ -197,7 +197,7 @@ Navigation entries use the core navigation link block, whose `url` may be an in-
 
 **Site_Footer (`parts/footer.html`)**
 
-- GLOW_Branding block (multicolor wordmark + "run by GLOW") — Req 10.1, 10.2.
+- GLOW_Branding block (multicolor wordmark + "supported by GLOW") — Req 10.1, 10.2.
 - Contact summary (email `castlefordcommunityfoodpantry@gmail.com`, the named phone contacts Laura / Kim / Tracy, and venue addresses) and social links — Req 11.1, 11.5.
 - Secondary navigation mirroring section anchors.
 - Attribution and copyright.
@@ -241,16 +241,16 @@ graph TD
 
 ### GLOW_Branding Component
 
-A small reusable markup fragment (used in hero and footer) rendering the wordmark as four `<span>`s, one per letter, each colored with the corresponding GLOW token, plus "run by GLOW" attribution text (Req 2.6, 10.1, 10.2).
+A small reusable markup fragment (used in hero and footer) rendering the wordmark as four `<span>`s, one per letter, each colored with the corresponding GLOW token, plus "supported by GLOW" attribution text (Req 2.6, 10.1, 10.2).
 
 ```html
-<p class="glow-wordmark" aria-label="run by GLOW">
-  <span class="glow-attr">run by</span>
+<p class="glow-wordmark" aria-label="supported by GLOW">
+  <span class="glow-attr">supported by</span>
   <span class="glow glow--g">G</span><span class="glow glow--l">L</span><span class="glow glow--o">O</span><span class="glow glow--w">W</span>
 </p>
 ```
 
-Letter colors map to tokens: `glow-g` → `#3B8FE0`, `glow-l` → `#EE3B24`, `glow-o` → `#FFD60A`, `glow-w` → `#B026D0`. The `aria-label` ensures the wordmark announces as "run by GLOW" rather than four separate letters.
+Letter colors map to tokens: `glow-g` → `#3B8FE0`, `glow-l` → `#EE3B24`, `glow-o` → `#FFD60A`, `glow-w` → `#B026D0`. The `aria-label` ensures the wordmark announces as "supported by GLOW" rather than four separate letters.
 
 ### functions.php / inc interfaces
 

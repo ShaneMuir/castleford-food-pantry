@@ -14,7 +14,7 @@ $home = esc_url( home_url( '/' ) );
 <!-- wp:group {"className":"cfp-header","tagName":"header","layout":{"type":"default"}} -->
 <header class="wp-block-group cfp-header"><!-- wp:group {"className":"cfp-header__inner","layout":{"type":"default"}} -->
 <div class="wp-block-group cfp-header__inner"><!-- wp:html -->
-<a class="cfp-header__logo" href="<?php echo $home; ?>" aria-label="Castleford Community Food Pantry, hosted by GLOW - home"><img src="<?php echo cfp_asset( 'images/logo-horizontal.svg' ); ?>" width="450" height="200" alt="Castleford Community Food Pantry, hosted by GLOW" /></a>
+<a class="cfp-header__logo" href="<?php echo $home; ?>" aria-label="Castleford Community Food Pantry, supported by GLOW - home"><img src="<?php echo cfp_asset( 'images/logo-horizontal.svg' ); ?>" width="450" height="200" alt="Castleford Community Food Pantry, supported by GLOW" /></a>
 <!-- /wp:html -->
 
 <!-- wp:navigation {"overlayMenu":"mobile","ariaLabel":"Primary","layout":{"type":"flex","justifyContent":"right"}} -->

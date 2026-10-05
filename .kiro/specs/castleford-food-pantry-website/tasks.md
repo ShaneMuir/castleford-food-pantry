@@ -114,7 +114,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
 
 - [ ] 5. Build the GLOW_Branding reusable fragment
   - [x] 5.1 Implement the GLOW wordmark fragment
-    - Create the reusable markup (four letter `<span>`s mapped to glow-g/l/o/w tokens, `run by` attribution, `aria-label="run by GLOW"`) and supporting CSS in `assets/css/`
+    - Create the reusable markup (four letter `<span>`s mapped to glow-g/l/o/w tokens, `supported by` attribution, `aria-label="supported by GLOW"`) and supporting CSS in `assets/css/`
     - Make it includable from both the hero pattern and the footer part
     - _Requirements: 2.6, 10.1, 10.2_
 
@@ -125,7 +125,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
 
 - [ ] 6. Build template parts (header and footer)
   - [x] 6.1 Implement Site_Header part
-    - Create `parts/header.html`: skip link (first focusable, targets `#main`), logo block (horizontal lockup `v2-1`) linked to home with alt "Castleford Community Food Pantry, run by GLOW", core Navigation block with an entry per section, persistent support CTA to `#donate`, responsive overlay at ≤782px
+    - Create `parts/header.html`: skip link (first focusable, targets `#main`), logo block (horizontal lockup `v2-1`) linked to home with alt "Castleford Community Food Pantry, supported by GLOW", core Navigation block with an entry per section, persistent support CTA to `#donate`, responsive overlay at ≤782px
     - Ensure navigation entries use the core navigation link block so `url` can be an anchor or page URL with no structural change
     - _Requirements: 3.1, 3.2, 3.4, 3.5, 3.6, 10.3, 12.7, 16.3_
 
@@ -351,7 +351,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
 - Each property test runs a **minimum of 100 generated cases** with `fast-check` and is tagged `// Feature: castleford-food-pantry-website, Property N: <property text>`.
 - Pure analyzer helpers (clamp math, token resolution, validators, DOM analyzers) are extracted into `tools/analyzers/` so properties run in-memory under jsdom; layout/contrast properties use Playwright for a real layout engine.
 - Each task references specific requirements and, where applicable, a numbered correctness property from the design for traceability.
-- Implementation deviations from the original wording (owner-approved): GLOW is described as "hosted by GLOW" (GLOW provides the venues, does not run the pantry) rather than "run by GLOW"; hero CTAs are "Find a session" / "Support us"; JSON-LD uses the `NGO` type.
+- Implementation deviations from the original wording (owner-approved): GLOW is described as "hosted by GLOW" (GLOW provides the venues, does not run the pantry) rather than "supported by GLOW"; hero CTAs are "Find a session" / "Support us"; JSON-LD uses the `NGO` type.
 - The theme runs with no build step; `tools/` scripts (WebP conversion, poster extraction, SVGO) are developer conveniences only.
 - All 34 correctness properties are covered: Properties 1,4,5,6,7,8,10 (tokens), 3,31 (assets), 9 (GLOW), 11,12 (nav), 13,14,15,16,17 (hero), 25 (support), 20 (images/alt), 26 (contact), 2,21 (templates), 32,33,34 (assets/SEO), 18,19,22,23,24,27,28,29,30 (a11y/responsive).
 

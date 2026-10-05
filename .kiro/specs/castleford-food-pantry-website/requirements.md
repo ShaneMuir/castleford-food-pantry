@@ -27,7 +27,7 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 - **Donate_Section**: The section explaining how a visitor, business, or supporter can support the pantry through surplus-food partnerships, volunteering, and spreading the word.
 - **Volunteer_Section**: The section explaining how a visitor can volunteer.
 - **Sponsors_Section**: The section showcasing partner brands and sponsors that support the pantry.
-- **GLOW_Branding**: The visual treatment that presents the multicolor "GLOW" wordmark and "run by GLOW" attribution as a prominent, eye-catching element.
+- **GLOW_Branding**: The visual treatment that presents the multicolor "GLOW" wordmark and "supported by GLOW" attribution as a prominent, eye-catching element.
 - **Contact_Section**: The section containing contact details, physical location, and an embedded map.
 - **Site_Footer**: The template part rendered at the bottom of every template containing attribution, contact summary, and secondary navigation.
 - **Site_Header**: The template part rendered at the top of every template containing the logo and primary navigation.
@@ -163,8 +163,8 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 #### Acceptance Criteria
 
 1. THE Site SHALL display GLOW_Branding in the Hero_Section and the Site_Footer.
-2. THE GLOW_Branding SHALL present the "run by GLOW" attribution text alongside the GLOW wordmark.
-3. THE Site SHALL provide a text alternative of "Castleford Community Food Pantry, run by GLOW" for the primary logo image.
+2. THE GLOW_Branding SHALL present the "supported by GLOW" attribution text alongside the GLOW wordmark.
+3. THE Site SHALL provide a text alternative of "Castleford Community Food Pantry, supported by GLOW" for the primary logo image.
 
 ### Requirement 11: Contact and Location Section
 

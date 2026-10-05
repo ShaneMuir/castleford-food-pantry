@@ -8,17 +8,17 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Multicolour GLOW wordmark (Req 2.6, 10.1, 10.2; wording per owner: GLOW hosts, does not run, the pantry).
+ * Multicolour GLOW wordmark (Req 2.6, 10.1, 10.2; wording per owner: GLOW supports, but does not run, the pantry).
  *
  * Each letter uses its own colour token. The group is exposed to assistive tech
- * as a single image labelled "hosted by GLOW".
+ * as a single image labelled "supported by GLOW".
  *
  * @param string $class Extra class names.
  * @return string
  */
 function cfp_glow_wordmark( $class = '' ) {
-	return '<p class="cfp-glow ' . esc_attr( $class ) . '" role="img" aria-label="hosted by GLOW">'
-		. '<span class="cfp-glow__by" aria-hidden="true">hosted by</span> '
+	return '<p class="cfp-glow ' . esc_attr( $class ) . '" role="img" aria-label="supported by GLOW">'
+		. '<span class="cfp-glow__by" aria-hidden="true">supported by</span> '
 		. '<span class="cfp-glow__word" aria-hidden="true">'
 		. '<span class="glow glow--g">G</span><span class="glow glow--l">L</span>'
 		. '<span class="glow glow--o">O</span><span class="glow glow--w">W</span>'

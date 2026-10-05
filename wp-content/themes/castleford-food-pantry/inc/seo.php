@@ -28,7 +28,7 @@ function cfp_seo_head() {
 	if ( cfp_seo_plugin_active() || ! is_front_page() ) {
 		return;
 	}
-	$desc  = 'Castleford Community Food Pantry rescues surplus food from landfill and shares it with the community for £1. No referral needed. Sessions on Sundays and Fridays. Hosted by GLOW.';
+	$desc  = 'Castleford Community Food Pantry rescues surplus food from landfill and shares it with the community for £1. No referral needed. Sessions on Sundays and Fridays. Supported by GLOW.';
 	$title = 'Castleford Community Food Pantry | Surplus food for just £1';
 	$url   = home_url( '/' );
 	$image = get_theme_file_uri( 'assets/images/og-image.png' );
@@ -44,7 +44,7 @@ function cfp_seo_head() {
 		'og:image'        => $image,
 		'og:image:width'  => '1200',
 		'og:image:height' => '630',
-		'og:image:alt'    => 'Castleford Community Food Pantry, hosted by GLOW',
+		'og:image:alt'    => 'Castleford Community Food Pantry, supported by GLOW',
 		'og:locale'       => 'en_GB',
 	);
 	foreach ( $og as $k => $v ) {
