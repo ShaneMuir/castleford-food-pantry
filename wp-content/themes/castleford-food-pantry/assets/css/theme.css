@@ -123,3 +123,67 @@ html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 /* Links inside white cards must stay readable on green/navy sections */
 .cfp-card a:not(.wp-block-button__link) { color: var(--wp--preset--color--brand-green) !important; font-weight: 800; }
 .cfp-map { height: 100%; min-height: 360px; }
+
+/* ---- Mobile header, menu overlay and hero (<= 782px) ---- */
+/* Block-gap margins pushed the nav (hamburger) below the logo's centre line. */
+.cfp-header__inner > * { margin-block: 0; }
+.cfp-header .wp-block-navigation { margin: 0; }
+
+/* Hamburger / close buttons: 44px tap target, brand colour. */
+.cfp-header .wp-block-navigation__responsive-container-open,
+.cfp-header .wp-block-navigation__responsive-container-close {
+	width: 44px; height: 44px; padding: 0; align-items: center; justify-content: center;
+	color: var(--wp--preset--color--brand-navy); border-radius: .75rem;
+}
+.cfp-header .wp-block-navigation__responsive-container-open svg,
+.cfp-header .wp-block-navigation__responsive-container-close svg { width: 28px; height: 28px; }
+.cfp-header .wp-block-navigation__responsive-container-open:hover { background: rgba(31,58,95,.08); }
+
+/* Full-screen menu: navy panel, GLOW bar, roomy left-aligned links. */
+.wp-block-navigation__responsive-container.is-menu-open {
+	background: var(--wp--preset--color--brand-navy) !important;
+	color: var(--wp--preset--color--brand-cream) !important;
+	padding: 0 !important;
+	border-top: 10px solid transparent;
+	border-image: linear-gradient(90deg, var(--wp--preset--color--glow-g) 0 25%, var(--wp--preset--color--glow-l) 25% 50%, var(--wp--preset--color--glow-o) 50% 75%, var(--wp--preset--color--glow-w) 75% 100%) 1;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+	position: absolute; top: .9rem; right: clamp(1rem, 4vw, 2.5rem);
+	color: var(--wp--preset--color--brand-cream);
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close:hover { background: rgba(255,248,236,.12); }
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	padding: 5rem clamp(1.5rem, 7vw, 2.5rem) 2.5rem;
+	justify-content: flex-start;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+	width: 100%; gap: 0; align-items: stretch; flex-direction: column;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+	width: 100%; border-bottom: 1px solid rgba(255,248,236,.18);
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+	display: block; width: 100%; padding: 1.1rem 0 !important;
+	font-family: var(--wp--preset--font-family--heading, inherit);
+	font-size: clamp(1.4rem, 1.1rem + 1.6vw, 1.75rem); font-weight: 700; line-height: 1.2;
+	color: var(--wp--preset--color--brand-cream) !important; text-align: left; text-decoration: none;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content:hover,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content:focus-visible {
+	color: var(--wp--preset--color--brand-gold) !important; text-decoration: none;
+}
+.wp-block-navigation__responsive-container.is-menu-open :focus-visible { outline-color: var(--wp--preset--color--brand-gold); }
+
+@media (max-width: 782px) {
+	.cfp-header__inner { padding-block: .5rem; }
+	.cfp-header__logo img { height: 56px; }
+
+	/* Hero: tidier eyebrow pill (was a chunky two-line capsule). */
+	.cfp-hero .cfp-eyebrow { font-size: .78rem; letter-spacing: .1em; padding: .4rem .9rem; border-radius: 1rem; line-height: 1.3; }
+
+	/* Hero media: poster only on mobile (video is skipped), in a compact portrait frame. */
+	.cfp-hero__media { width: min(100%, 340px); margin-top: 1.5rem; }
+	.cfp-hero__frame { aspect-ratio: 4 / 5; border-width: 5px; border-radius: 1.5rem; box-shadow: 8px 8px 0 var(--wp--preset--color--glow-w), 0 20px 40px rgba(0,0,0,.3); }
+	.cfp-hero__frame video { display: none; }
+	.cfp-hero__badge { left: .75rem; bottom: .75rem; width: 92px; }
+}

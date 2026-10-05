@@ -25,7 +25,7 @@ $home = esc_url( home_url( '/' ) );
 		<div class="cfp-hero__media">
 			<div class="cfp-hero__frame" data-cfp-hero-video>
 				<img src="<?php echo cfp_asset( 'images/poster.webp' ); ?>" width="480" height="848" alt="" fetchpriority="high" decoding="async" />
-				<video muted playsinline autoplay loop preload="metadata" poster="<?php echo cfp_asset( 'images/poster.webp' ); ?>" aria-hidden="true" tabindex="-1">
+				<video muted playsinline loop preload="none" poster="<?php echo cfp_asset( 'images/poster.webp' ); ?>" aria-hidden="true" tabindex="-1">
 					<source src="<?php echo cfp_asset( 'video/castleford-food-pantry-video.mp4' ); ?>" type="video/mp4" />
 				</video>
 			</div>

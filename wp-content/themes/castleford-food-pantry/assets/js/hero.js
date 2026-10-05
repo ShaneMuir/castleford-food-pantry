@@ -24,7 +24,9 @@
 		video.hidden = true;
 	};
 	var reduce = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-	if ( reduce ) {
+	// Phones: skip the 4.8MB portrait video entirely and keep the poster (saves data, improves LCP).
+	var small = window.matchMedia && window.matchMedia( '(max-width: 782px)' ).matches;
+	if ( reduce || small ) {
 		fallback();
 		return;
 	}
