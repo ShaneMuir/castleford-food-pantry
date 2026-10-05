@@ -268,7 +268,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
     - Output `<title>`, meta description, Open Graph + Twitter Card tags (with sharing image = badge), and a `LocalBusiness`/`CommunityService` JSON-LD block (name, location, contact) on `wp_head`; guard against duplicate output when a known SEO plugin is active
     - _Requirements: 15.1, 15.2, 15.3_
 
-  - [ ] 17.3 Add robots.txt and XML sitemap exposure
+  - [x] 17.3 Add robots.txt and XML sitemap exposure
     - Create root `robots.txt` permitting indexing and referencing the sitemap; ensure the WordPress XML sitemap is exposed
     - _Requirements: 15.4_
 

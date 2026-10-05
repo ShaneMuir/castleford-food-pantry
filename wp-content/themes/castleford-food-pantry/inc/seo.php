@@ -92,3 +92,30 @@ function cfp_seo_head() {
 	echo '<script type="application/ld+json">' . wp_json_encode( $ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
 }
 add_action( 'wp_head', 'cfp_seo_head', 5 );
+
+/**
+ * Virtual robots.txt: allow indexing and point to the core XML sitemap (Req 15.4).
+ *
+ * Uses WordPress's `robots_txt` filter so the Sitemap URL always matches the
+ * current domain (local, staging, production). Only applies when the site is
+ * public and no physical robots.txt file exists at the web root.
+ *
+ * @param string $output Existing robots.txt output.
+ * @param bool   $public Whether the site is visible to search engines.
+ * @return string
+ */
+function cfp_robots_txt( $output, $public ) {
+	if ( ! $public ) {
+		return $output;
+	}
+	$lines   = array(
+		'User-agent: *',
+		'Allow: /',
+		'Disallow: /wp-admin/',
+		'Allow: /wp-admin/admin-ajax.php',
+		'',
+		'Sitemap: ' . home_url( '/wp-sitemap.xml' ),
+	);
+	return implode( "\n", $lines ) . "\n";
+}
+add_filter( 'robots_txt', 'cfp_robots_txt', 10, 2 );
