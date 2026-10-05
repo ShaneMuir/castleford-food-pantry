@@ -1,0 +1,283 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "720px",
+			"wideSize": "1200px"
+		},
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{
+					"slug": "brand-green",
+					"name": "Brand Green",
+					"color": "#2F7D4F"
+				},
+				{
+					"slug": "brand-gold",
+					"name": "Brand Gold",
+					"color": "#F5B82E"
+				},
+				{
+					"slug": "brand-navy",
+					"name": "Brand Navy",
+					"color": "#1F3A5F"
+				},
+				{
+					"slug": "brand-cream",
+					"name": "Brand Cream",
+					"color": "#FFF8EC"
+				},
+				{
+					"slug": "brand-accent",
+					"name": "Brand Accent",
+					"color": "#E4572E"
+				},
+				{
+					"slug": "glow-g",
+					"name": "GLOW Blue",
+					"color": "#3B8FE0"
+				},
+				{
+					"slug": "glow-l",
+					"name": "GLOW Red",
+					"color": "#EE3B24"
+				},
+				{
+					"slug": "glow-o",
+					"name": "GLOW Yellow",
+					"color": "#FFD60A"
+				},
+				{
+					"slug": "glow-w",
+					"name": "GLOW Purple",
+					"color": "#B026D0"
+				}
+			]
+		},
+		"typography": {
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"slug": "heading",
+					"name": "Heading",
+					"fontFamily": "Poppins, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/poppins-600.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/poppins-700.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "800",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/poppins-800.woff2"
+							]
+						}
+					]
+				},
+				{
+					"slug": "body",
+					"name": "Body",
+					"fontFamily": "\"Nunito Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Nunito Sans",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/nunito-sans-400.woff2"
+							]
+						},
+						{
+							"fontFamily": "Nunito Sans",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/nunito-sans-600.woff2"
+							]
+						},
+						{
+							"fontFamily": "Nunito Sans",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/nunito-sans-700.woff2"
+							]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "sm",
+					"name": "Small",
+					"size": "1rem",
+					"fluid": {
+						"min": "0.95rem",
+						"max": "1rem"
+					}
+				},
+				{
+					"slug": "base",
+					"name": "Base",
+					"size": "1.125rem",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
+				},
+				{
+					"slug": "lg",
+					"name": "Large",
+					"size": "1.5rem",
+					"fluid": {
+						"min": "1.25rem",
+						"max": "1.5rem"
+					}
+				},
+				{
+					"slug": "xl",
+					"name": "XLarge",
+					"size": "2.25rem",
+					"fluid": {
+						"min": "1.75rem",
+						"max": "2.25rem"
+					}
+				},
+				{
+					"slug": "display",
+					"name": "Display",
+					"size": "3.5rem",
+					"fluid": {
+						"min": "2.25rem",
+						"max": "3.5rem"
+					}
+				}
+			]
+		},
+		"spacing": {
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"slug": "xs",
+					"name": "X-Small",
+					"size": "0.5rem"
+				},
+				{
+					"slug": "sm",
+					"name": "Small",
+					"size": "1rem"
+				},
+				{
+					"slug": "md",
+					"name": "Medium",
+					"size": "2rem"
+				},
+				{
+					"slug": "lg",
+					"name": "Large",
+					"size": "4rem"
+				},
+				{
+					"slug": "xl",
+					"name": "X-Large",
+					"size": "6rem"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var:preset|color|brand-cream",
+			"text": "var:preset|color|brand-navy"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|body",
+			"fontSize": "var:preset|font-size|base",
+			"lineHeight": "1.6"
+		},
+		"spacing": {
+			"blockGap": "var:preset|spacing|md",
+			"padding": {
+				"top": "0",
+				"right": "var:preset|spacing|md",
+				"bottom": "0",
+				"left": "var:preset|spacing|md"
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|brand-green"
+				},
+				":hover": {
+					"color": {
+						"text": "var:preset|color|brand-accent"
+					}
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|heading",
+					"lineHeight": "1.2"
+				},
+				"color": {
+					"text": "var:preset|color|brand-navy"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|display"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|xl"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|lg"
+				}
+			}
+		}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Site Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Site Footer",
+			"area": "footer"
+		}
+	]
+}

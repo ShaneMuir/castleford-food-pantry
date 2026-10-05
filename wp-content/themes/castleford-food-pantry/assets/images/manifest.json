@@ -1,0 +1,145 @@
+{
+  "an-example-flyer-the-food-bank-has-used-previously.jpeg": {
+    "webp": "assets/images/an-example-flyer-the-food-bank-has-used-previously.webp",
+    "width": 565,
+    "height": 800,
+    "variants": [
+      {
+        "file": "assets/images/an-example-flyer-the-food-bank-has-used-previously-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/an-example-flyer-the-food-bank-has-used-previously.webp",
+        "width": 565
+      }
+    ],
+    "srcset": "assets/images/an-example-flyer-the-food-bank-has-used-previously-480.webp 480w, assets/images/an-example-flyer-the-food-bank-has-used-previously.webp 565w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "another-example-flyer.jpeg": {
+    "webp": "assets/images/another-example-flyer.webp",
+    "width": 789,
+    "height": 1120,
+    "variants": [
+      {
+        "file": "assets/images/another-example-flyer-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/another-example-flyer-768.webp",
+        "width": 768
+      },
+      {
+        "file": "assets/images/another-example-flyer.webp",
+        "width": 789
+      }
+    ],
+    "srcset": "assets/images/another-example-flyer-480.webp 480w, assets/images/another-example-flyer-768.webp 768w, assets/images/another-example-flyer.webp 789w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "brands-that-work-with-food-bank.jpeg": {
+    "webp": "assets/images/brands-that-work-with-food-bank.webp",
+    "width": 1500,
+    "height": 932,
+    "variants": [
+      {
+        "file": "assets/images/brands-that-work-with-food-bank-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/brands-that-work-with-food-bank-768.webp",
+        "width": 768
+      },
+      {
+        "file": "assets/images/brands-that-work-with-food-bank-1024.webp",
+        "width": 1024
+      },
+      {
+        "file": "assets/images/brands-that-work-with-food-bank.webp",
+        "width": 1500
+      }
+    ],
+    "srcset": "assets/images/brands-that-work-with-food-bank-480.webp 480w, assets/images/brands-that-work-with-food-bank-768.webp 768w, assets/images/brands-that-work-with-food-bank-1024.webp 1024w, assets/images/brands-that-work-with-food-bank.webp 1500w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "example-flyer-3.jpeg": {
+    "webp": "assets/images/example-flyer-3.webp",
+    "width": 767,
+    "height": 960,
+    "variants": [
+      {
+        "file": "assets/images/example-flyer-3-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/example-flyer-3.webp",
+        "width": 767
+      }
+    ],
+    "srcset": "assets/images/example-flyer-3-480.webp 480w, assets/images/example-flyer-3.webp 767w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "example-poster.jpeg": {
+    "webp": "assets/images/example-poster.webp",
+    "width": 711,
+    "height": 720,
+    "variants": [
+      {
+        "file": "assets/images/example-poster-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/example-poster.webp",
+        "width": 711
+      }
+    ],
+    "srcset": "assets/images/example-poster-480.webp 480w, assets/images/example-poster.webp 711w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "food-bank-sponsor-form.jpeg": {
+    "webp": "assets/images/food-bank-sponsor-form.webp",
+    "width": 866,
+    "height": 1332,
+    "variants": [
+      {
+        "file": "assets/images/food-bank-sponsor-form-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/food-bank-sponsor-form-768.webp",
+        "width": 768
+      },
+      {
+        "file": "assets/images/food-bank-sponsor-form.webp",
+        "width": 866
+      }
+    ],
+    "srcset": "assets/images/food-bank-sponsor-form-480.webp 480w, assets/images/food-bank-sponsor-form-768.webp 768w, assets/images/food-bank-sponsor-form.webp 866w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  },
+  "pic-of-food-bank-packages.jpeg": {
+    "webp": "assets/images/pic-of-food-bank-packages.webp",
+    "width": 1536,
+    "height": 2048,
+    "variants": [
+      {
+        "file": "assets/images/pic-of-food-bank-packages-480.webp",
+        "width": 480
+      },
+      {
+        "file": "assets/images/pic-of-food-bank-packages-768.webp",
+        "width": 768
+      },
+      {
+        "file": "assets/images/pic-of-food-bank-packages-1024.webp",
+        "width": 1024
+      },
+      {
+        "file": "assets/images/pic-of-food-bank-packages.webp",
+        "width": 1536
+      }
+    ],
+    "srcset": "assets/images/pic-of-food-bank-packages-480.webp 480w, assets/images/pic-of-food-bank-packages-768.webp 768w, assets/images/pic-of-food-bank-packages-1024.webp 1024w, assets/images/pic-of-food-bank-packages.webp 1536w",
+    "sizes": "(max-width: 782px) 100vw, 720px"
+  }
+}
