@@ -46,3 +46,4 @@ add_action( 'after_setup_theme', 'castleford_food_pantry_setup' );
 // Load the asset pipeline and SEO/structured-data output.
 require get_template_directory() . '/inc/assets.php';
 require get_template_directory() . '/inc/seo.php';
+require get_template_directory() . '/inc/login.php';

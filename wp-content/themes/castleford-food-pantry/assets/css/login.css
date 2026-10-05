@@ -1,0 +1,122 @@
+/* Castleford Community Food Pantry: branded wp-login.php screen. */
+@font-face { font-family: "Poppins"; font-weight: 800; font-style: normal; font-display: swap; src: url("../fonts/poppins-800.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/nunito-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/nunito-sans-700.woff2") format("woff2"); }
+
+:root {
+	--cfp-green: #2F7D4F;
+	--cfp-gold: #F5B82E;
+	--cfp-navy: #1F3A5F;
+	--cfp-cream: #FFF8EC;
+	--cfp-accent: #E4572E;
+	--cfp-glow-g: #3B8FE0;
+	--cfp-glow-l: #EE3B24;
+	--cfp-glow-o: #FFD60A;
+	--cfp-glow-w: #B026D0;
+}
+
+body.login {
+	font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+	color: var(--cfp-navy);
+	background:
+		linear-gradient(90deg, var(--cfp-glow-g) 0 25%, var(--cfp-glow-l) 25% 50%, var(--cfp-glow-o) 50% 75%, var(--cfp-glow-w) 75% 100%) top / 100% 10px no-repeat,
+		var(--cfp-cream);
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body.login::after {
+	content: "";
+	position: fixed;
+	inset: auto 0 0 0;
+	height: 14px;
+	background: var(--cfp-navy);
+	border-top: 4px solid var(--cfp-gold);
+	box-sizing: content-box;
+}
+
+#login { width: min(400px, 92vw); padding: 2rem 0; margin: 0; }
+
+/* Logo */
+.login h1 a {
+	background: url("../images/logo-horizontal.svg") center / contain no-repeat;
+	width: 100%;
+	height: 150px;
+	margin: 0 auto 1.25rem;
+}
+
+/* Card */
+.login form {
+	background: #fff;
+	border: 0;
+	border-top: 6px solid var(--cfp-green);
+	border-radius: 1rem;
+	box-shadow: 0 12px 32px rgba(31, 58, 95, .14);
+	padding: 1.75rem 1.5rem 1.5rem;
+	margin-top: 0;
+}
+.login label { color: var(--cfp-navy); font-weight: 700; font-size: 1rem; }
+.login form .input,
+.login input[type="text"],
+.login input[type="password"] {
+	border: 2px solid #c9d2de;
+	border-radius: .6rem;
+	padding: .55rem .8rem;
+	font-size: 1.05rem;
+	color: var(--cfp-navy);
+	box-shadow: none;
+}
+.login form .input:focus,
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+	border-color: var(--cfp-green);
+	box-shadow: 0 0 0 3px rgba(47, 125, 79, .25);
+	outline: 0;
+}
+.login .button.wp-hide-pw { color: var(--cfp-navy); }
+.login input[type="checkbox"]:checked::before { content: ""; }
+.login input[type="checkbox"] { border-color: var(--cfp-navy); }
+.login input[type="checkbox"]:checked { background: var(--cfp-green); border-color: var(--cfp-green); }
+
+/* Primary button */
+.login .button-primary,
+.wp-core-ui .login .button-primary {
+	background: var(--cfp-green);
+	border: 0;
+	border-radius: 999px;
+	color: #fff;
+	font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+	font-weight: 700;
+	font-size: 1rem;
+	min-height: 44px;
+	padding: 0 1.75rem;
+	text-shadow: none;
+	box-shadow: none;
+	transition: background-color .15s ease;
+}
+.login .button-primary:hover,
+.login .button-primary:focus { background: var(--cfp-navy); color: #fff; }
+.login .button-primary:focus-visible { outline: 3px solid var(--cfp-glow-w); outline-offset: 3px; }
+
+/* Messages */
+.login .message, .login .success, .login #login_error {
+	border-left: 6px solid var(--cfp-green);
+	border-radius: .6rem;
+	box-shadow: 0 4px 14px rgba(31, 58, 95, .08);
+	color: var(--cfp-navy);
+}
+.login #login_error { border-left-color: var(--cfp-accent); }
+
+/* Links */
+.login #nav a, .login #backtoblog a, .login .privacy-policy-page-link a {
+	color: var(--cfp-navy);
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.login #nav a:hover, .login #backtoblog a:hover { color: var(--cfp-green); }
+.login #nav, .login #backtoblog { text-align: center; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) { .login * { transition: none !important; } }
