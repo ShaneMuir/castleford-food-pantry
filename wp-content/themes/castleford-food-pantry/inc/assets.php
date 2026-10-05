@@ -45,3 +45,45 @@ function cfp_pattern_category() {
 	register_block_pattern_category( 'cfp', array( 'label' => __( 'Castleford Food Pantry', 'castleford-food-pantry' ) ) );
 }
 add_action( 'init', 'cfp_pattern_category' );
+
+/**
+ * Default favicon / app icons.
+ *
+ * Supplies the theme's castle mark as the Site Icon when none is set in
+ * Appearance > Customize > Site Identity. WordPress then prints the usual
+ * icon and apple-touch-icon links and redirects /favicon.ico to the 32px PNG.
+ * A Site Icon chosen by the site owner always takes precedence.
+ *
+ * @param string $url     Site icon URL (empty when none is set).
+ * @param int    $size    Requested icon size in pixels.
+ * @return string
+ */
+function cfp_default_site_icon( $url, $size ) {
+	if ( ! empty( $url ) ) {
+		return $url;
+	}
+	$size = (int) $size;
+	if ( $size <= 32 ) {
+		$file = 'favicon-32.png';
+	} elseif ( 180 === $size ) {
+		$file = 'apple-touch-icon.png';
+	} elseif ( $size <= 192 ) {
+		$file = 'favicon-192.png';
+	} else {
+		$file = 'favicon-512.png';
+	}
+	return get_theme_file_uri( 'assets/images/favicon/' . $file );
+}
+add_filter( 'get_site_icon_url', 'cfp_default_site_icon', 10, 2 );
+
+/** Crisp scalable icon for modern browsers (only when no Site Icon is set). */
+function cfp_favicon_svg() {
+	if ( get_option( 'site_icon' ) ) {
+		return;
+	}
+	printf(
+		'<link rel="icon" href="%s" type="image/svg+xml" sizes="any" />' . "\n",
+		esc_url( get_theme_file_uri( 'assets/images/favicon/favicon.svg' ) )
+	);
+}
+add_action( 'wp_head', 'cfp_favicon_svg', 2 );

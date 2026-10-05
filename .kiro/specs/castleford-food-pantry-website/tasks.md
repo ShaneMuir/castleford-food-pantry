@@ -351,7 +351,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
 - Each property test runs a **minimum of 100 generated cases** with `fast-check` and is tagged `// Feature: castleford-food-pantry-website, Property N: <property text>`.
 - Pure analyzer helpers (clamp math, token resolution, validators, DOM analyzers) are extracted into `tools/analyzers/` so properties run in-memory under jsdom; layout/contrast properties use Playwright for a real layout engine.
 - Each task references specific requirements and, where applicable, a numbered correctness property from the design for traceability.
-- Implementation deviations from the original wording (owner-approved): GLOW is described as "hosted by GLOW" (GLOW provides the venues, does not run the pantry) rather than "supported by GLOW"; hero CTAs are "Find a session" / "Support us"; JSON-LD uses the `NGO` type.
+- Implementation deviations from the original wording (owner-approved): GLOW is described as "supported by GLOW" (GLOW provides the venues, does not run the pantry) rather than "run by GLOW"; hero CTAs are "Find a session" / "Support us"; JSON-LD uses the `NGO` type.
 - The theme runs with no build step; `tools/` scripts (WebP conversion, poster extraction, SVGO) are developer conveniences only.
 - All 34 correctness properties are covered: Properties 1,4,5,6,7,8,10 (tokens), 3,31 (assets), 9 (GLOW), 11,12 (nav), 13,14,15,16,17 (hero), 25 (support), 20 (images/alt), 26 (contact), 2,21 (templates), 32,33,34 (assets/SEO), 18,19,22,23,24,27,28,29,30 (a11y/responsive).
 
