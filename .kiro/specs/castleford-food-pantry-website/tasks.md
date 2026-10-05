@@ -53,33 +53,33 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
     - These load and parse `theme.json` so properties can run in-memory
     - _Requirements: 1.3, 2.2, 2.5, 2.7_
 
-  - [ ]* 3.3 Write property test for invalid theme configuration rejection
+  - [x]* 3.3 Write property test for invalid theme configuration rejection
     - **Property 1: Invalid theme configuration is rejected with an identified fault**
     - **Validates: Requirements 1.3**
     - Generate malformed JSON, missing `version`, wrong `version`, and missing required settings keys; assert rejection names the invalid field (min 100 iterations)
 
-  - [ ]* 3.4 Write property test for color token validity and uniqueness
+  - [x]* 3.4 Write property test for color token validity and uniqueness
     - **Property 4: Color tokens are uniquely named and valid**
     - **Validates: Requirements 2.1**
 
-  - [ ]* 3.5 Write property test for fluid typography clamp and monotonicity
+  - [x]* 3.5 Write property test for fluid typography clamp and monotonicity
     - **Property 5: Fluid typography is clamped and monotonic**
     - **Validates: Requirements 2.2, 13.2**
     - Generate font sizes × viewport widths including boundaries (359/360/782/783, fluid min/max viewports)
 
-  - [ ]* 3.6 Write property test for spacing tokens
+  - [x]* 3.6 Write property test for spacing tokens
     - **Property 6: Spacing tokens are sufficient, uniquely named, and non-negative**
     - **Validates: Requirements 2.3**
 
-  - [ ]* 3.7 Write property test for layout widths
+  - [x]* 3.7 Write property test for layout widths
     - **Property 7: Wide width is at least content width**
     - **Validates: Requirements 2.4**
 
-  - [ ]* 3.8 Write property test for token change propagation
+  - [x]* 3.8 Write property test for token change propagation
     - **Property 8: Token changes propagate to all referencing blocks**
     - **Validates: Requirements 2.5**
 
-  - [ ]* 3.9 Write property test for token fallback resolution
+  - [x]* 3.9 Write property test for token fallback resolution
     - **Property 10: Undefined or invalid token references resolve to a defined fallback**
     - **Validates: Requirements 2.7**
 
