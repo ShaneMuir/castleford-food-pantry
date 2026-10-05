@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" width="580" height="200" role="img" aria-label="Castleford Food Pantry, run by GLOW">
+<g transform="translate(10 10) scale(1.2)"><circle cx="50" cy="40" r="30" fill="#F5B82E"/>
+<path d="M20 25h10v8h10v-8h20v8h10v-8h10v47H20z" fill="#2F7D4F"/>
+<path d="M42 72V60a8 8 0 0 1 16 0v12z" fill="#FFF8EC"/>
+<path d="M50 50C40 43 42 36 47 36c2 0 3 2 3 2s1-2 3-2c5 0 7 7-3 14z" fill="#E4572E"/></g>
+<text x="150" y="78" font-family="'Nunito','Poppins','Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="52" fill="#1F3A5F">Castleford</text>
+<text x="153" y="112" font-family="'Nunito','Poppins','Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="24" letter-spacing="7" fill="#2F7D4F">FOOD PANTRY</text>
+<rect x="152" y="136" width="234" height="46" rx="23" fill="#1F3A5F"/>
+<text x="174" y="166" font-family="'Nunito','Poppins','Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="15" letter-spacing="2" fill="#FFF8EC">RUN BY</text>
+<text x="244" y="168" text-anchor="start" font-family="'Nunito','Poppins','Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" letter-spacing="3"><tspan fill="#3B8FE0">G</tspan><tspan fill="#EE3B24">L</tspan><tspan fill="#FFD60A">O</tspan><tspan fill="#B026D0">W</tspan></text>
+</svg>

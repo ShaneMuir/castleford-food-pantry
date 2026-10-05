@@ -1,0 +1,242 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Initialize repository and ignore rules": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203961649
+      },
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203973717
+      },
+      {
+        "executionId": "b11f1161-9c24-416a-b950-2150bb25e9c5",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791204776567
+      }
+    ],
+    "1.2 Set up test and tooling layer": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203961775
+      },
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203974736
+      },
+      {
+        "executionId": "b11f1161-9c24-416a-b950-2150bb25e9c5",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791204777280
+      }
+    ],
+    "2.1 Create theme header, directory structure, and functions bootstrap": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203961869
+      }
+    ],
+    "3.1 Author theme.json v3 tokens": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203961911
+      }
+    ],
+    "3.2 Extract pure config/token helper functions for testability": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203961964
+      }
+    ],
+    "4.1 Self-host brand fonts and register @font-face": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962011
+      }
+    ],
+    "4.2 Build the image conversion pipeline": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962086
+      }
+    ],
+    "4.3 Derive the hero poster and place the video": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962135
+      }
+    ],
+    "4.4 Optimize and place the SVG logos": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962173
+      }
+    ],
+    "5.1 Implement the GLOW wordmark fragment": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962234
+      }
+    ],
+    "6.1 Implement Site_Header part": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962303
+      }
+    ],
+    "6.2 Implement Site_Footer part": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962339
+      }
+    ],
+    "6.3 Extract DOM analyzer helpers for navigation and structure": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962383
+      }
+    ],
+    "7.1 Build hero.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962428
+      }
+    ],
+    "7.2 Add hero progressive-enhancement script and reduced-motion CSS": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962480
+      }
+    ],
+    "7.3 Implement hero content validators": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962533
+      }
+    ],
+    "8. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962590
+      }
+    ],
+    "9.1 Build about.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962649
+      }
+    ],
+    "10.1 Build get-help.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962728
+      }
+    ],
+    "11.1 Build donate.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962843
+      }
+    ],
+    "12.1 Build volunteer.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962884
+      }
+    ],
+    "13.1 Build sponsors.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962932
+      }
+    ],
+    "14.1 Build contact.php pattern markup": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203962979
+      }
+    ],
+    "15.1 Implement front-page.html Home_Template": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963029
+      }
+    ],
+    "15.2 Implement index, page, 404, and search templates": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963080
+      }
+    ],
+    "16. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963119
+      }
+    ],
+    "17.1 Implement inc/assets.php": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963161
+      }
+    ],
+    "17.2 Implement inc/seo.php": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963203
+      }
+    ],
+    "17.3 Add robots.txt and XML sitemap exposure": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963255
+      }
+    ],
+    "18.1 Add focus-visible styles and keyboard order safeguards": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963312
+      }
+    ],
+    "20. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "5e2f6ac3-0f8e-4e7c-98e9-2e70c2985d19",
+        "chatSessionId": "sess_7e4067e4-40ab-4d35-8b8f-f3e86866dc86",
+        "timestamp": 1791203963358
+      }
+    ]
+  }
+}

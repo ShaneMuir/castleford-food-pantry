@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────
+# Castleford Community Food Pantry — .gitignore
+# Tracks only the project theme at wp-content/themes/castleford-food-pantry/
+# plus repo-root tooling/config. WordPress core, uploads, and local
+# environment secrets are excluded.
+# ─────────────────────────────────────────────────────────────
+
+# WordPress core directories
+/wp-admin/
+/wp-includes/
+
+# WordPress core root PHP files
+/wp-*.php
+/xmlrpc.php
+/index.php
+
+# License / readme shipped with core
+/license.txt
+/readme.html
+/wp-config-sample.php
+
+# Local environment secrets
+wp-config.php
+.env
+.env.*
+*.local
+
+# Uploads and upgrade working directories
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+
+# Drop-ins / machine-generated content
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/debug.log
+
+# Ignore all plugins (none are part of this theme project)
+wp-content/plugins/*
+
+# Ignore all themes by default...
+wp-content/themes/*
+# ...then explicitly keep the project theme tracked.
+!wp-content/themes/castleford-food-pantry/
+
+# Node / tooling
+node_modules/
+tools/node_modules/
+dist/
+build/
+coverage/
+.cache/
+npm-debug.log*
+yarn-error.log*
+
+# Test / build output
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
