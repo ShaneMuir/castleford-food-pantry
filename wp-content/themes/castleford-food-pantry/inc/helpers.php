@@ -41,6 +41,7 @@ function cfp_image_block( $key, $class = '', $size = 'large' ) {
 		$attr['className'] = $class;
 	}
 	$src = $m['id'] ? ( wp_get_attachment_image_url( $m['id'], $size ) ?: $m['url'] ) : $m['url'];
+	$src = cfp_relative_url( $src );
 	return '<!-- wp:image ' . wp_json_encode( $attr, JSON_UNESCAPED_SLASHES ) . " -->\n"
 		. '<figure class="wp-block-image size-' . esc_attr( $size ) . ( $class ? ' ' . esc_attr( $class ) : '' ) . '">'
 		. '<img src="' . esc_url( $src ) . '" alt="' . esc_attr( $m['alt'] ) . '"' . ( $m['id'] ? ' class="wp-image-' . (int) $m['id'] . '"' : '' ) . '/></figure>'
@@ -67,7 +68,7 @@ function cfp_video_block( $video_key, $poster_key, $class = '' ) {
 	}
 	return '<!-- wp:video' . ( $attr ? ' ' . wp_json_encode( $attr, JSON_UNESCAPED_SLASHES ) : '' ) . " -->\n"
 		. '<figure class="wp-block-video' . ( $class ? ' ' . esc_attr( $class ) : '' ) . '">'
-		. '<video loop muted poster="' . esc_url( $p['url'] ) . '" preload="none" src="' . esc_url( $v['url'] ) . '" playsinline></video></figure>'
+		. '<video loop muted poster="' . esc_url( cfp_relative_url( $p['url'] ) ) . '" preload="none" src="' . esc_url( cfp_relative_url( $v['url'] ) ) . '" playsinline></video></figure>'
 		. "\n<!-- /wp:video -->";
 }
 
@@ -86,4 +87,18 @@ function cfp_glow_block( $label = 'supported by' ) {
 	return "<!-- wp:paragraph {\"className\":\"cfp-glow\"} -->\n"
 		. '<p class="cfp-glow">' . esc_html( $label ) . ' ' . $letters . "</p>\n"
 		. '<!-- /wp:paragraph -->';
+}
+
+/**
+ * Make a same-site URL root-relative (/wp-content/...).
+ *
+ * Page content is saved with these, so it keeps working when the site is reached
+ * on another host (staging, Live Links, tunnels) without a database search-replace.
+ *
+ * @param string $url Absolute URL.
+ * @return string
+ */
+function cfp_relative_url( $url ) {
+	$home = untrailingslashit( home_url() );
+	return ( $home && 0 === strpos( $url, $home . '/' ) ) ? substr( $url, strlen( $home ) ) : $url;
 }
