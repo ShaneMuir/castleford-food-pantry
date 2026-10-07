@@ -14,7 +14,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /** Bump to re-run setup (media/menus/logo/home) on the next admin load. */
-const CFP_SETUP_VERSION = '1';
+const CFP_SETUP_VERSION = '2';
 
 /** Section patterns that make up the Home page, in order. */
 function cfp_home_sections() {
@@ -149,6 +149,9 @@ function cfp_run_setup( $reset_home = false ) {
 		update_option( 'page_on_front', $home_id );
 	}
 	$summary['home_page'] = $home_id;
+
+	// 5. Comments are switched off site-wide; close anything already open.
+	cfp_disable_comment_settings();
 
 	update_option( 'cfp_setup_version', CFP_SETUP_VERSION, false );
 	return $summary;

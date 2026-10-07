@@ -14,7 +14,10 @@ function cfp_login_styles() {
 add_action( 'login_enqueue_scripts', 'cfp_login_styles' );
 
 /** Logo links to the site, not wordpress.org. */
-add_filter( 'login_headerurl', 'home_url' );
+function cfp_login_href(): string {
+	return esc_url( site_url( '/' ) );
+}
+add_filter( 'login_headerurl', 'cfp_login_href' );
 
 /** Logo link text for assistive tech. */
 function cfp_login_header_text() {
