@@ -221,3 +221,17 @@ html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 .cfp-card h3.wp-block-heading { margin-block: 0 .75rem; }
 .cfp-map iframe { min-height: 360px; }
 .cfp-footer__legal { box-sizing: border-box; }
+
+/* Block editor only: the editor caps every top-level block at the 720px content width and
+   centres it, and pads the canvas by 32px. The front end has neither, so release both for
+   the full-width sections and hero so the editor matches the live page. */
+.is-root-container > .cfp-section,
+.is-root-container > .cfp-hero {
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+.is-root-container.has-global-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
