@@ -116,3 +116,30 @@ which is **not** committed (see `.gitignore`).
 Developer tooling (tests and asset conversion) lives under `tools/` with a root
 `package.json`. The theme itself runs with **no build step** — the `tools/`
 scripts (WebP conversion, poster extraction, SVGO, tests) are conveniences only.
+
+## Editing the site in the CMS
+
+Everything on the site is made of editable core blocks. There is no raw HTML to edit, apart from the Google Maps embed in the Contact section (an HTML block: paste a new embed code to change it).
+
+| What | Where |
+| --- | --- |
+| Home page sections (hero, about, get help, support us, volunteer, partners, contact): text, images, buttons, hero video | **Pages > Home** |
+| Header and footer layout, logo, contact details, legal line | **Appearance > Editor > Patterns / Template parts** (Header, Footer) |
+| Menu links (header and footer) | **Appearance > Editor > Navigation** ("Primary navigation", "Footer navigation") |
+| Logo | Site Logo block in the header (replace from the media library). SVG, PNG and WebP uploads are supported |
+| Section and card colours | Select a section or card, then **Styles** in the sidebar (Section: Cream / White / Green / Navy, Card: Green / Red / Blue / Gold / Purple). Any block also has the brand palette in its **Color** panel |
+| Button looks | Select a button, then **Styles** (Green, Gold, Outline) |
+| Hero headline highlight | Italic text in the hero heading renders in gold |
+
+### First-time setup / new environments
+
+On the first wp-admin load after activating the theme (or after an update), the theme imports its starter images, logo and hero video into the media library, creates the two navigation menus, builds the **Home** page from the section patterns and sets it as the static front page. It never overwrites a Home page that already exists.
+
+Run it manually (for example on staging) with WP-CLI:
+
+```bash
+wp cfp setup              # create anything that is missing
+wp cfp setup --reset-home # rebuild the Home page content from the patterns (discards edits to it)
+```
+
+When moving a database between environments, run a search and replace on the site URL (media and links are stored as absolute URLs).

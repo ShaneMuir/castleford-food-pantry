@@ -35,7 +35,8 @@ function cfp_preloads() {
 	if ( ! is_front_page() ) {
 		return;
 	}
-	printf( '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n", esc_url( get_theme_file_uri( 'assets/images/poster.webp' ) ) );
+	$poster = cfp_media( 'poster' );
+	printf( '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n", esc_url( $poster['url'] ) );
 	printf( '<link rel="preload" as="font" type="font/woff2" href="%s" crossorigin />' . "\n", esc_url( get_theme_file_uri( 'assets/fonts/poppins-700.woff2' ) ) );
 }
 add_action( 'wp_head', 'cfp_preloads', 1 );
@@ -87,3 +88,9 @@ function cfp_favicon_svg() {
 	);
 }
 add_action( 'wp_head', 'cfp_favicon_svg', 2 );
+
+/** Skip link: first focusable element, targets #main (Req 12.7). */
+function cfp_skip_link() {
+	printf( '<a class="skip-link" href="#main">%s</a>' . "\n", esc_html__( 'Skip to main content', 'castleford-food-pantry' ) );
+}
+add_action( 'wp_body_open', 'cfp_skip_link', 1 );

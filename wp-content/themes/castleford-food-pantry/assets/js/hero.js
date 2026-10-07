@@ -1,30 +1,26 @@
 /**
  * Hero video progressive enhancement (Req 4.5-4.7, 12.8, 14.5).
- * The poster is always rendered. The muted video only plays when motion is
- * allowed and it starts within 5 seconds; otherwise it is removed and the
- * poster stays with the layout untouched.
+ * The hero is a core/video block with a poster. The poster is always visible.
+ * The muted video only plays when motion is allowed, the screen is not a phone,
+ * and playback starts within 5 seconds. Otherwise the source is removed so the
+ * poster stays and no video data is downloaded.
  */
 ( function () {
-	var hero = document.querySelector( '[data-cfp-hero-video]' );
-	if ( ! hero ) {
-		return;
-	}
-	var video = hero.querySelector( 'video' );
+	var video = document.querySelector( '.cfp-hero video' );
 	if ( ! video ) {
 		return;
 	}
+	var frame = video.closest( '.cfp-hero__frame' ) || video.parentNode;
 	var fallback = function () {
-		hero.classList.add( 'is-poster-only' );
+		frame.classList.add( 'is-poster-only' );
 		video.pause();
 		video.removeAttribute( 'src' );
 		while ( video.firstChild ) {
 			video.removeChild( video.firstChild );
 		}
 		video.load();
-		video.hidden = true;
 	};
 	var reduce = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-	// Phones: skip the 4.8MB portrait video entirely and keep the poster (saves data, improves LCP).
 	var small = window.matchMedia && window.matchMedia( '(max-width: 782px)' ).matches;
 	if ( reduce || small ) {
 		fallback();
@@ -33,11 +29,11 @@
 	var timer = window.setTimeout( fallback, 5000 );
 	video.addEventListener( 'playing', function () {
 		window.clearTimeout( timer );
-		hero.classList.add( 'is-playing' );
+		frame.classList.add( 'is-playing' );
 	} );
 	video.addEventListener( 'error', fallback );
 	video.addEventListener( 'stalled', function () {
-		if ( ! hero.classList.contains( 'is-playing' ) ) {
+		if ( ! frame.classList.contains( 'is-playing' ) ) {
 			fallback();
 		}
 	} );

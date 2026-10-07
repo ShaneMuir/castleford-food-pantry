@@ -8,24 +8,6 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Multicolour GLOW wordmark (Req 2.6, 10.1, 10.2; wording per owner: GLOW supports, but does not run, the pantry).
- *
- * Each letter uses its own colour token. The group is exposed to assistive tech
- * as a single image labelled "supported by GLOW".
- *
- * @param string $class Extra class names.
- * @return string
- */
-function cfp_glow_wordmark( $class = '' ) {
-	return '<p class="cfp-glow ' . esc_attr( $class ) . '" role="img" aria-label="supported by GLOW">'
-		. '<span class="cfp-glow__by" aria-hidden="true">supported by</span> '
-		. '<span class="cfp-glow__word" aria-hidden="true">'
-		. '<span class="glow glow--g">G</span><span class="glow glow--l">L</span>'
-		. '<span class="glow glow--o">O</span><span class="glow glow--w">W</span>'
-		. '</span></p>';
-}
-
-/**
  * URL of a file in the theme's assets directory.
  *
  * @param string $path Path relative to assets/.
@@ -35,42 +17,73 @@ function cfp_asset( $path ) {
 	return esc_url( get_theme_file_uri( 'assets/' . ltrim( $path, '/' ) ) );
 }
 
+/* -------------------------------------------------------------------------
+ * Block-markup helpers for patterns (output matches what the editor saves).
+ * ---------------------------------------------------------------------- */
+
 /**
- * Responsive <img> built from the image manifest (Req 13.4, 14.3, 14.4).
+ * core/image block for a starter-media item.
  *
- * @param string $source   Source file name in manifest (e.g. "pic.jpeg").
- * @param string $alt      Alt text ('' marks the image decorative).
- * @param string $sizes    sizes attribute.
- * @param string $class    Class names.
- * @param bool   $eager    Load eagerly (above the fold) instead of lazy.
+ * @param string $key   Key from cfp_starter_media().
+ * @param string $class Extra class name(s).
+ * @param string $size  Image size slug.
  * @return string
  */
-function cfp_img( $source, $alt, $sizes = '(max-width: 782px) 100vw, 720px', $class = '', $eager = false ) {
-	static $manifest = null;
-	if ( null === $manifest ) {
-		$file     = get_theme_file_path( 'assets/images/manifest.json' );
-		$decoded  = is_readable( $file ) ? json_decode( (string) file_get_contents( $file ), true ) : array();
-		$manifest = isset( $decoded['images'] ) ? $decoded['images'] : ( is_array( $decoded ) ? $decoded : array() );
+function cfp_image_block( $key, $class = '', $size = 'large' ) {
+	$m    = cfp_media( $key );
+	$attr = array();
+	if ( $m['id'] ) {
+		$attr['id'] = $m['id'];
 	}
-	if ( empty( $manifest[ $source ] ) ) {
-		return '';
+	$attr['sizeSlug']        = $size;
+	$attr['linkDestination'] = 'none';
+	if ( $class ) {
+		$attr['className'] = $class;
 	}
-	$m      = $manifest[ $source ];
-	$base   = trailingslashit( get_theme_file_uri( 'assets/images' ) );
-	$srcset = array();
-	foreach ( (array) $m['variants'] as $v ) {
-		$srcset[] = esc_url( $base . basename( $v['file'] ) ) . ' ' . (int) $v['width'] . 'w';
+	$src = $m['id'] ? ( wp_get_attachment_image_url( $m['id'], $size ) ?: $m['url'] ) : $m['url'];
+	return '<!-- wp:image ' . wp_json_encode( $attr, JSON_UNESCAPED_SLASHES ) . " -->\n"
+		. '<figure class="wp-block-image size-' . esc_attr( $size ) . ( $class ? ' ' . esc_attr( $class ) : '' ) . '">'
+		. '<img src="' . esc_url( $src ) . '" alt="' . esc_attr( $m['alt'] ) . '"' . ( $m['id'] ? ' class="wp-image-' . (int) $m['id'] . '"' : '' ) . '/></figure>'
+		. "\n<!-- /wp:image -->";
+}
+
+/**
+ * core/video block (muted, looping, no controls; JS starts playback when allowed).
+ *
+ * @param string $video_key  Media key for the video file.
+ * @param string $poster_key Media key for the poster image.
+ * @param string $class      Extra class name(s).
+ * @return string
+ */
+function cfp_video_block( $video_key, $poster_key, $class = '' ) {
+	$v    = cfp_media( $video_key );
+	$p    = cfp_media( $poster_key );
+	$attr = array();
+	if ( $v['id'] ) {
+		$attr['id'] = $v['id'];
 	}
-	return sprintf(
-		'<img src="%s" srcset="%s" sizes="%s" width="%d" height="%d" alt="%s" class="%s" loading="%s" decoding="async"%s />',
-		esc_url( $base . basename( $m['webp'] ) ),
-		esc_attr( implode( ', ', $srcset ) ),
-		esc_attr( $sizes ),
-		(int) $m['width'],
-		(int) $m['height'],
-		esc_attr( $alt ),
-		esc_attr( $class ),
-		$eager ? 'eager' : 'lazy',
-		$eager ? ' fetchpriority="high"' : ''
-	);
+	if ( $class ) {
+		$attr['className'] = $class;
+	}
+	return '<!-- wp:video' . ( $attr ? ' ' . wp_json_encode( $attr, JSON_UNESCAPED_SLASHES ) : '' ) . " -->\n"
+		. '<figure class="wp-block-video' . ( $class ? ' ' . esc_attr( $class ) : '' ) . '">'
+		. '<video loop muted poster="' . esc_url( $p['url'] ) . '" preload="none" src="' . esc_url( $v['url'] ) . '" playsinline></video></figure>'
+		. "\n<!-- /wp:video -->";
+}
+
+/**
+ * The multicolour GLOW wordmark as an editable paragraph (inline text colours
+ * come from the glow-g/l/o/w palette entries).
+ *
+ * @param string $label Text before the letters.
+ * @return string
+ */
+function cfp_glow_block( $label = 'supported by' ) {
+	$letters = '';
+	foreach ( array( 'G' => 'glow-g', 'L' => 'glow-l', 'O' => 'glow-o', 'W' => 'glow-w' ) as $ch => $slug ) {
+		$letters .= '<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-' . $slug . '-color">' . $ch . '</mark>';
+	}
+	return "<!-- wp:paragraph {\"className\":\"cfp-glow\"} -->\n"
+		. '<p class="cfp-glow">' . esc_html( $label ) . ' ' . $letters . "</p>\n"
+		. '<!-- /wp:paragraph -->';
 }

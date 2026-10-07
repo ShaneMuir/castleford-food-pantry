@@ -7,22 +7,22 @@
  * Note: slug and #donate anchor are kept stable; the visitor-facing heading is "Support us".
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"donate","className":"cfp-section cfp-section--green","layout":{"type":"default"}} -->
-<section id="donate" class="wp-block-group cfp-section cfp-section--green"><!-- wp:paragraph {"className":"cfp-eyebrow"} -->
-<p class="cfp-eyebrow">Support us / Get involved</p>
+<!-- wp:group {"tagName":"section","anchor":"donate","className":"cfp-section is-style-cfp-green","layout":{"type":"default"}} -->
+<section id="donate" class="wp-block-group cfp-section is-style-cfp-green"><!-- wp:paragraph {"className":"is-style-cfp-eyebrow"} -->
+<p class="is-style-cfp-eyebrow">Support us / Get involved</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2} -->
+<!-- wp:heading -->
 <h2 class="wp-block-heading">Help us rescue more food</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"cfp-lead"} -->
-<p class="cfp-lead">The more surplus food we can save, the more neighbours we can feed. Here is how you can help.</p>
+<!-- wp:paragraph {"className":"is-style-cfp-lead"} -->
+<p class="is-style-cfp-lead">The more surplus food we can save, the more neighbours we can feed. Here is how you can help.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:group {"className":"cfp-cards","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-cards"><!-- wp:group {"className":"cfp-card cfp-card--gold","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--gold"><!-- wp:heading {"level":3} -->
+<div class="wp-block-group cfp-cards"><!-- wp:group {"className":"cfp-card is-style-cfp-card-gold","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-gold"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Become a surplus food partner</h3>
 <!-- /wp:heading -->
 
@@ -31,8 +31,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"cfp-card cfp-card--blue","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--blue"><!-- wp:heading {"level":3} -->
+<!-- wp:group {"className":"cfp-card is-style-cfp-card-blue","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-blue"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Volunteer your time</h3>
 <!-- /wp:heading -->
 
@@ -45,8 +45,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"cfp-card cfp-card--purple","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--purple"><!-- wp:heading {"level":3} -->
+<!-- wp:group {"className":"cfp-card is-style-cfp-card-purple","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-purple"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Spread the word</h3>
 <!-- /wp:heading -->
 
@@ -56,8 +56,8 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"className":"is-style-cfp-gold"} -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-cfp-gold"} -->
 <div class="wp-block-button is-style-cfp-gold"><a class="wp-block-button__link wp-element-button" href="#contact">Get in touch to support us</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>

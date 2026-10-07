@@ -6,30 +6,36 @@
  * Inserter: yes
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"get-help","className":"cfp-section cfp-section--white","layout":{"type":"default"}} -->
-<section id="get-help" class="wp-block-group cfp-section cfp-section--white"><!-- wp:paragraph {"className":"cfp-eyebrow"} -->
-<p class="cfp-eyebrow">Get help</p>
+<!-- wp:group {"tagName":"section","anchor":"get-help","className":"cfp-section is-style-cfp-white","layout":{"type":"default"}} -->
+<section id="get-help" class="wp-block-group cfp-section is-style-cfp-white"><!-- wp:paragraph {"className":"is-style-cfp-eyebrow"} -->
+<p class="is-style-cfp-eyebrow">Get help</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2} -->
+<!-- wp:heading -->
 <h2 class="wp-block-heading">Come along to a session</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"cfp-lead"} -->
-<p class="cfp-lead">Pick the day and place that suits you. You do not need a referral and you do not need to book.</p>
+<!-- wp:paragraph {"className":"is-style-cfp-lead"} -->
+<p class="is-style-cfp-lead">Pick the day and place that suits you. You do not need a referral and you do not need to book.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:html -->
-<ul class="cfp-facts">
-	<li><strong>&pound;1</strong> Costs &pound;1</li>
-	<li><strong>&#10003;</strong> No referrals needed</li>
-	<li><strong>&#128717;</strong> Please bring a bag</li>
-</ul>
-<!-- /wp:html -->
+<!-- wp:list {"className":"cfp-facts"} -->
+<ul class="wp-block-list cfp-facts"><!-- wp:list-item -->
+<li><strong>£1</strong> Costs £1</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>✓</strong> No referrals needed</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>🛍</strong> Please bring a bag</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
 
 <!-- wp:group {"className":"cfp-cards","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-cards"><!-- wp:group {"className":"cfp-card cfp-card--red","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--red"><!-- wp:paragraph {"className":"cfp-day"} -->
+<div class="wp-block-group cfp-cards"><!-- wp:group {"className":"cfp-card is-style-cfp-card-red","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-red"><!-- wp:paragraph {"className":"cfp-day"} -->
 <p class="cfp-day">Sundays</p>
 <!-- /wp:paragraph -->
 
@@ -38,12 +44,12 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>Food pantry</strong> <span class="cfp-price">&pound;1</span><br>Airedale Gospel Hall<br>Royds Ave, Castleford<br>WF10 3LQ</p>
+<p><strong>Food pantry · £1</strong><br>Airedale Gospel Hall<br>Royds Ave, Castleford<br>WF10 3LQ</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"cfp-card cfp-card--purple","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--purple"><!-- wp:paragraph {"className":"cfp-day"} -->
+<!-- wp:group {"className":"cfp-card is-style-cfp-card-purple","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-purple"><!-- wp:paragraph {"className":"cfp-day"} -->
 <p class="cfp-day">Sundays</p>
 <!-- /wp:paragraph -->
 
@@ -52,12 +58,12 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>Food pantry</strong> <span class="cfp-price">&pound;1</span><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
+<p><strong>Food pantry · £1</strong><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"cfp-card cfp-card--blue","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--blue"><!-- wp:paragraph {"className":"cfp-day"} -->
+<!-- wp:group {"className":"cfp-card is-style-cfp-card-blue","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-blue"><!-- wp:paragraph {"className":"cfp-day"} -->
 <p class="cfp-day">Fridays</p>
 <!-- /wp:paragraph -->
 
@@ -66,12 +72,12 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>Breakfast</strong> <span class="cfp-price">&pound;1</span><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
+<p><strong>Breakfast · £1</strong><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"cfp-card cfp-card--blue","layout":{"type":"default"}} -->
-<div class="wp-block-group cfp-card cfp-card--blue"><!-- wp:paragraph {"className":"cfp-day"} -->
+<!-- wp:group {"className":"cfp-card is-style-cfp-card-blue","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-card is-style-cfp-card-blue"><!-- wp:paragraph {"className":"cfp-day"} -->
 <p class="cfp-day">Fridays</p>
 <!-- /wp:paragraph -->
 
@@ -80,22 +86,28 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>Food pantry</strong> <span class="cfp-price">&pound;1</span><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
+<p><strong>Food pantry · £1</strong><br>Cutsyke Christian Church<br>Cutsyke Rd, Castleford<br>WF10 5HA</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:html -->
-<ol class="cfp-steps">
-	<li><span>Choose a session above and come along. No booking is needed.</span></li>
-	<li><span>Bring a bag to carry your food home.</span></li>
-	<li><span>Pay &pound;1 and choose what your household needs.</span></li>
-</ol>
-<!-- /wp:html -->
+<!-- wp:list {"ordered":true,"className":"cfp-steps"} -->
+<ol class="wp-block-list cfp-steps"><!-- wp:list-item -->
+<li>Choose a session above and come along. No booking is needed.</li>
+<!-- /wp:list-item -->
 
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:button {"backgroundColor":"brand-green","textColor":"white"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-brand-green-background-color has-text-color has-background wp-element-button" href="#contact">Got a question? Get in touch</a></div>
+<!-- wp:list-item -->
+<li>Bring a bag to carry your food home.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Pay £1 and choose what your household needs.</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-cfp-btn-green"} -->
+<div class="wp-block-button is-style-cfp-btn-green"><a class="wp-block-button__link wp-element-button" href="#contact">Got a question? Get in touch</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

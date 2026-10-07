@@ -5,33 +5,41 @@
  * Categories: cfp
  * Inserter: yes
  */
-$home = esc_url( home_url( '/' ) );
 ?>
-<!-- wp:html -->
-<section class="cfp-hero" id="home" aria-labelledby="hero-title">
-	<div class="cfp-hero__grid">
-		<div class="cfp-hero__copy">
-			<p class="cfp-eyebrow"><?php esc_html_e( 'Castleford Community Food Pantry', 'castleford-food-pantry' ); ?></p>
-			<h1 id="hero-title"><?php echo wp_kses( __( 'Good food, <em>not food waste.</em> Just &pound;1.', 'castleford-food-pantry' ), array( 'em' => array() ) ); ?></h1>
-			<p><?php esc_html_e( 'We rescue surplus food that would otherwise go to landfill and share it with our community. No referral needed. Everyone is welcome.', 'castleford-food-pantry' ); ?></p>
-			<div class="cfp-hero__ctas">
-				<div class="wp-block-buttons">
-					<div class="wp-block-button is-style-cfp-gold"><a class="wp-block-button__link wp-element-button" href="#get-help"><?php esc_html_e( 'Find a session', 'castleford-food-pantry' ); ?></a></div>
-					<div class="wp-block-button is-style-cfp-outline"><a class="wp-block-button__link wp-element-button" href="#donate"><?php esc_html_e( 'Support us', 'castleford-food-pantry' ); ?></a></div>
-				</div>
-			</div>
-			<div class="cfp-glowpill"><?php echo cfp_glow_wordmark(); ?></div>
-		</div>
-		<div class="cfp-hero__media">
-			<div class="cfp-hero__frame" data-cfp-hero-video>
-				<img src="<?php echo cfp_asset( 'images/poster.webp' ); ?>" width="480" height="848" alt="" fetchpriority="high" decoding="async" />
-				<video muted playsinline loop preload="none" poster="<?php echo cfp_asset( 'images/poster.webp' ); ?>" aria-hidden="true" tabindex="-1">
-					<source src="<?php echo cfp_asset( 'video/castleford-food-pantry-video.mp4' ); ?>" type="video/mp4" />
-				</video>
-			</div>
-			<div class="cfp-hero__badge"><img src="<?php echo cfp_asset( 'images/logo-badge.svg' ); ?>" width="400" height="400" alt="Castleford Community Food Pantry, supported by GLOW" /></div>
-		</div>
-	</div>
-</section>
-<div class="cfp-glowbar" aria-hidden="true"></div>
-<!-- /wp:html -->
+<!-- wp:group {"tagName":"section","anchor":"home","className":"cfp-hero","layout":{"type":"default"}} -->
+<section id="home" class="wp-block-group cfp-hero"><!-- wp:group {"className":"cfp-hero__grid","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-hero__grid"><!-- wp:group {"className":"cfp-hero__copy","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-hero__copy"><!-- wp:paragraph {"className":"is-style-cfp-eyebrow"} -->
+<p class="is-style-cfp-eyebrow">Castleford Community Food Pantry</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Good food, <em>not food waste.</em> Just £1.</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We rescue surplus food that would otherwise go to landfill and share it with our community. No referral needed. Everyone is welcome.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"cfp-hero__ctas"} -->
+<div class="wp-block-buttons cfp-hero__ctas"><!-- wp:button {"className":"is-style-cfp-gold"} -->
+<div class="wp-block-button is-style-cfp-gold"><a class="wp-block-button__link wp-element-button" href="#get-help">Find a session</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-cfp-outline"} -->
+<div class="wp-block-button is-style-cfp-outline"><a class="wp-block-button__link wp-element-button" href="#donate">Support us</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:group {"className":"cfp-glowpill","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-glowpill"><?php echo cfp_glow_block(); ?></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"cfp-hero__media","layout":{"type":"default"}} -->
+<div class="wp-block-group cfp-hero__media"><?php echo cfp_video_block( 'hero-video', 'poster', 'cfp-hero__frame' ); ?>
+
+<?php echo cfp_image_block( 'logo-badge', 'cfp-hero__badge', 'full' ); ?></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group -->
