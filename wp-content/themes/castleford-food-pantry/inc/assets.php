@@ -15,6 +15,9 @@ require_once get_template_directory() . '/inc/helpers.php';
 function cfp_enqueue_assets() {
 	$ver = wp_get_theme()->get( 'Version' );
 	wp_enqueue_style( 'cfp-theme', get_theme_file_uri( 'assets/css/theme.css' ), array(), filemtime( get_theme_file_path( 'assets/css/theme.css' ) ) ?: $ver );
+	// Dark colour scheme: only downloaded and applied when the visitor's device is in dark mode.
+	$dark = get_theme_file_path( 'assets/css/dark.css' );
+	wp_enqueue_style( 'cfp-dark', get_theme_file_uri( 'assets/css/dark.css' ), array( 'cfp-theme' ), file_exists( $dark ) ? filemtime( $dark ) : $ver, '(prefers-color-scheme: dark)' );
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'cfp-hero', get_theme_file_uri( 'assets/js/hero.js' ), array(), filemtime( get_theme_file_path( 'assets/js/hero.js' ) ) ?: $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
 	}
@@ -94,3 +97,12 @@ function cfp_skip_link() {
 	printf( '<a class="skip-link" href="#main">%s</a>' . "\n", esc_html__( 'Skip to main content', 'castleford-food-pantry' ) );
 }
 add_action( 'wp_body_open', 'cfp_skip_link', 1 );
+
+/**
+ * Tell browsers the site supports both light and dark, so they do not force-darken
+ * it algorithmically (which ignores the brand palette and wrecks contrast).
+ */
+function cfp_color_scheme_meta(): void {
+	echo '<meta name="color-scheme" content="light dark" />' . "\n";
+}
+add_action( 'wp_head', 'cfp_color_scheme_meta', 1 );

@@ -1,0 +1,80 @@
+/*
+ * Castleford Community Food Pantry: dark colour scheme (front end only).
+ * Loaded with media="(prefers-color-scheme: dark)", so light mode is untouched.
+ *
+ * Surfaces: page and cream sections -> deep navy, white sections -> a step lighter,
+ * cards -> lighter again. Hero, green section, sponsors and footer keep their brand
+ * colours. The header stays cream so the navy logo text keeps its contrast.
+ */
+:root {
+	--cfp-d-bg: #0e1726;
+	--cfp-d-alt: #14223a;
+	--cfp-d-card: #1c2f4d;
+	--cfp-d-text: #f4eee0;
+	--cfp-d-muted: #c9d1de;
+	--cfp-d-link: #7fd6a4;
+	--cfp-d-line: rgba(244, 238, 224, .22);
+}
+
+html body {
+	background-color: var(--cfp-d-bg);
+	color: var(--cfp-d-text);
+}
+
+/* Sections */
+html body .is-style-cfp-cream { background: var(--cfp-d-bg); color: var(--cfp-d-text); }
+html body .is-style-cfp-white { background: var(--cfp-d-alt); color: var(--cfp-d-text); }
+
+/* Headings and body copy on dark surfaces (green and navy sections already use light text). */
+html body .cfp-section :where(h1, h2, h3, h4, h5, h6),
+html body .wp-block-post-title,
+html body .wp-block-query-title { color: var(--cfp-d-text); }
+html body .is-style-cfp-cream :where(p, li),
+html body .is-style-cfp-white :where(p, li) { color: var(--cfp-d-text); }
+
+/* Links on dark surfaces */
+html body .is-style-cfp-cream a:not(.wp-block-button__link),
+html body .is-style-cfp-white a:not(.wp-block-button__link),
+html body .cfp-card a:not(.wp-block-button__link) { color: var(--cfp-d-link) !important; }
+
+/* Cards */
+html body .cfp-card {
+	background: var(--cfp-d-card);
+	color: var(--cfp-d-text);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, .45);
+}
+html body .cfp-card :where(h3, p, li) { color: var(--cfp-d-text); }
+html body .cfp-day { background: var(--wp--preset--color--brand-gold); color: var(--wp--preset--color--brand-navy); }
+html body .cfp-price { color: var(--cfp-d-link); }
+
+/* Key facts strip and steps */
+html body .cfp-facts li { background: var(--cfp-d-card); color: var(--cfp-d-text); }
+html body .cfp-facts strong { color: var(--cfp-d-link); }
+
+/* Buttons: the green button keeps white text; keep its hover visible on dark. */
+html body .is-style-cfp-btn-green .wp-block-button__link:hover { background: var(--wp--preset--color--brand-gold); color: var(--wp--preset--color--brand-navy); }
+
+/* Focus ring: purple is too dim on navy */
+html body :focus-visible { outline-color: var(--wp--preset--color--brand-gold); }
+
+/* Photos and maps sit comfortably on dark; soften the map's glare slightly. */
+html body .cfp-map iframe { filter: brightness(.88) contrast(1.05); }
+
+/* Search form and other native controls */
+html body input,
+html body textarea,
+html body select {
+	background: var(--cfp-d-card);
+	color: var(--cfp-d-text);
+	border-color: var(--cfp-d-line);
+}
+
+/* Keep the cream header and the gold label pills on their light-theme colours. */
+html body .cfp-header,
+html body .cfp-header .wp-block-navigation,
+html body .cfp-header .wp-block-navigation a,
+html body .cfp-header .wp-block-navigation .wp-block-navigation-item__content { color: var(--wp--preset--color--brand-navy); }
+html body .cfp-header .wp-block-navigation__responsive-container.is-menu-open a { color: var(--wp--preset--color--brand-cream) !important; }
+html body .cfp-header .wp-block-navigation a:hover { color: var(--wp--preset--color--brand-green); }
+html body .cfp-section .is-style-cfp-eyebrow,
+html body .cfp-hero .is-style-cfp-eyebrow { color: var(--wp--preset--color--brand-navy) !important; }
