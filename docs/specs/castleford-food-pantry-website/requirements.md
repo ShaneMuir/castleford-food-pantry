@@ -11,8 +11,9 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 ### Scope Summary
 
 - **In scope (launch):** One-page block-theme site with hero (video + logo), about, how to get help, how to support / get involved, how to volunteer, sponsors/brands, GLOW branding, contact/location, and site footer; accessibility, responsiveness, performance, SEO, and the extensibility foundation for future pages.
+- **In scope (editing and operations):** Every section editable in the WordPress editor with core blocks only, an idempotent setup routine that builds the site's content on a fresh install, a dark colour scheme, comments removed, a branded login screen and a default site icon.
 - **In scope (foundation only, not full build):** Template, pattern, and navigation structure that allows later expansion to multiple pages.
-- **Out of scope (launch):** User accounts, online payment processing, a content management workflow beyond standard WordPress editing, and multilingual content.
+- **Out of scope (launch):** User accounts, online payment processing, a content workflow beyond standard WordPress editing (drafts, approvals), and multilingual content.
 
 ## Glossary
 
@@ -39,6 +40,9 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 - **Brand_Palette**: The defined color set: green `#2F7D4F`, gold `#F5B82E`, navy `#1F3A5F`, cream `#FFF8EC`, red/orange accent `#E4572E`, plus the GLOW letter colors blue `#3B8FE0`, red `#EE3B24`, yellow `#FFD60A`, purple `#B026D0`.
 - **WCAG_AA**: The Web Content Accessibility Guidelines 2.1 Level AA conformance target.
 - **Reduced_Motion**: The user preference expressed via the `prefers-reduced-motion` media query.
+- **Starter_Media**: The logos, photos, poster and hero video shipped inside the theme that the setup routine imports into the media library.
+- **Setup_Routine**: The idempotent function (also exposed as `wp cfp setup`) that imports Starter_Media, creates the navigation menus, sets the Site Logo and builds the Home page from the section patterns.
+- **Dark_Scheme**: The alternate colour treatment applied when the Visitor's device reports `prefers-color-scheme: dark`.
 - **Core_Web_Vitals**: Google's performance metrics: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS).
 
 ## Requirements
@@ -82,7 +86,7 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 2. THE Site_Header SHALL display the Primary_Navigation with a link to each one-page section.
 3. WHEN a Visitor selects a Primary_Navigation link at launch, THE Site SHALL scroll the viewport to the corresponding section.
 4. WHILE a Visitor views the Site on a viewport width of 782 pixels or less, THE Site_Header SHALL present the Primary_Navigation as a collapsible menu control.
-5. THE Site_Header SHALL display a persistent primary call-to-action link labeled for donation.
+5. THE Site_Header SHALL display a persistent primary call-to-action link labeled for supporting the pantry.
 6. THE Primary_Navigation SHALL be defined so that a navigation entry can point to a separate page URL without changing the Site_Header markup structure.
 
 ### Requirement 4: Hero Section
@@ -94,7 +98,7 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 1. WHEN the Hero_Section loads, THE Hero_Section SHALL display the hero video `website-videos/castleford-food-pantry-video.mp4` as a background element covering 100% of the Hero_Section width.
 2. THE Hero_Section SHALL display the Castleford Community Food Pantry logo and a headline of between 1 and 120 characters describing the pantry's purpose.
 3. THE Hero_Section SHALL display GLOW_Branding positioned within the Hero_Section as a visible element.
-4. THE Hero_Section SHALL display exactly one primary call-to-action link for getting help and exactly one secondary call-to-action link for donating, each with visible link text of between 1 and 40 characters.
+4. THE Hero_Section SHALL display exactly one primary call-to-action link for getting help and exactly one secondary call-to-action link for supporting the pantry, each with visible link text of between 1 and 40 characters.
 5. WHILE the hero video plays, THE Hero_Section SHALL render the video muted with no audible audio output and SHALL NOT display native audio playback controls.
 6. WHEN the Hero_Section loads AND the Visitor has enabled Reduced_Motion, THE Hero_Section SHALL display a static poster image instead of playing the hero video.
 7. IF the hero video fails to load within 5 seconds, THEN THE Hero_Section SHALL display a static poster image and SHALL maintain all other Hero_Section elements (logo, headline, GLOW_Branding, call-to-action links) in their defined positions.
@@ -253,3 +257,58 @@ The site draws tonal and structural inspiration from UK community-charity sites 
 2. THE Site SHALL connect to the MySQL database named `castleford-food-pantry` on `localhost` at port `3306`.
 3. THE Block_Theme source SHALL be tracked in the Git repository with remote `git@github.com:ShaneMuir/castleford-food-pantry.git` on branch `main`.
 4. THE repository SHALL include a `.gitignore` that excludes WordPress core files, uploads, and local environment secrets from version control.
+
+### Requirement 18: CMS-Editable Content
+
+**User Story:** As an Editor, I want every piece of content on the Site to be editable in the WordPress editor with standard blocks, so that I never need to touch code or raw HTML to change the Site.
+
+#### Acceptance Criteria
+
+1. THE Home page SHALL be a WordPress page whose content is composed only of core blocks, with the exception of the map embed, which is a core HTML block.
+2. THE Site_Header and Site_Footer parts SHALL render from editable patterns, and their logo, contact details and legal line SHALL be editable in the Site Editor.
+3. THE Primary_Navigation and the footer navigation SHALL be navigation menus editable in the Site Editor.
+4. THE Block_Theme SHALL register block styles for section colours (Cream, White, Green, Navy), card colours (Green, Red, Blue, Gold, Purple), button looks (Green, Gold, Outline) and the paragraph styles Eyebrow label and Lead text.
+5. THE Setup_Routine SHALL import Starter_Media into the media library, create the primary and footer navigation menus, set the Site Logo, create the Home page from the section patterns in the Hero, About, Get Help, Support, Volunteer, Sponsors, Contact order, and set it as the static front page.
+6. THE Setup_Routine SHALL be idempotent: it SHALL NOT overwrite an existing Home page, an existing Site Logo or an existing menu, unless run with `--reset-home`, which rebuilds only the Home page content.
+7. THE Setup_Routine SHALL run on theme activation and once per setup version on the first wp-admin load by an administrator, and SHALL be runnable on demand with `wp cfp setup`.
+8. THE Home page content SHALL store same-site media URLs as root-relative paths so the Site works on any host without a database search-and-replace.
+
+### Requirement 19: Dark Colour Scheme
+
+**User Story:** As a Visitor whose device is set to dark mode, I want the Site to respect that preference, so that the Site is comfortable to read without losing its brand identity.
+
+#### Acceptance Criteria
+
+1. WHILE the Visitor's device reports `prefers-color-scheme: dark`, THE Site SHALL apply the Dark_Scheme to the front end; WHILE it does not, THE Site SHALL render the light scheme unchanged.
+2. THE Dark_Scheme stylesheet SHALL be loaded with a `(prefers-color-scheme: dark)` media condition so light-mode Visitors do not apply it.
+3. THE Dark_Scheme SHALL keep the hero, green section, sponsors section and footer in their brand colours and SHALL keep the header on a light surface so the logo keeps its contrast.
+4. THE Site SHALL meet Requirement 12 contrast thresholds in both schemes.
+5. THE Site SHALL declare `color-scheme` support in a `<meta name="color-scheme">` tag so browsers do not force-darken the Site.
+
+### Requirement 20: Administration Clean-Up
+
+**User Story:** As the pantry, I want an admin area with no unused features, so that Editors only see what the Site needs.
+
+#### Acceptance Criteria
+
+1. THE Site SHALL disable comments and pings completely: comment and trackback support removed from all post types, comment admin screens and menus blocked, comment blocks removed from the inserter, comment REST routes removed, and comment settings closed on existing content.
+2. THE Site SHALL remove the WordPress logo from the admin bar and replace the admin footer text and version display.
+
+### Requirement 21: Brand Identity in WordPress Surfaces
+
+**User Story:** As the pantry, I want the brand to appear on the login screen and in browser tabs, so that every touchpoint feels like the same organisation.
+
+#### Acceptance Criteria
+
+1. THE wp-login screen SHALL display the Site logo, brand colours and brand fonts, and the logo SHALL link to the Site root URL.
+2. WHERE no Site Icon is configured, THE Site SHALL supply the castle mark as the favicon and app icons, including an SVG favicon and a web app manifest; a Site Icon chosen by an Editor SHALL take precedence.
+3. THE Site SHALL provide a 1200×630 Open Graph image.
+
+### Requirement 22: Media Library Support
+
+**User Story:** As an Editor, I want to replace logos and photos from the media library, so that the brand assets are not locked inside the theme.
+
+#### Acceptance Criteria
+
+1. THE Site SHALL accept SVG uploads in the media library, SHALL reject SVG files containing script-capable content, and SHALL record SVG width and height from the `width`/`height` attributes or `viewBox`.
+2. THE Site SHALL serve Starter_Media from the media library once imported and SHALL fall back to the theme file when an item has not been imported.

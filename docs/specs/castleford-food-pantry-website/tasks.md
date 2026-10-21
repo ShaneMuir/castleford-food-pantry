@@ -39,7 +39,7 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
     - Assert `style.css` header, `theme.json`, and `templates/` with at least one template exist
     - _Requirements: 1.1_
 
-- [ ] 3. Build the theme.json design-token source of truth
+- [x] 3. Build the theme.json design-token source of truth
   - [x] 3.1 Author theme.json v3 tokens
     - Create `theme.json` with `version: 3`
     - Define the Brand_Palette color tokens plus the four GLOW letter colors (glow-g `#3B8FE0`, glow-l `#EE3B24`, glow-o `#FFD60A`, glow-w `#B026D0`), each with a unique slug and valid hex
@@ -345,14 +345,39 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
 - [ ] 20. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
+- [x] 21. CMS-editable content
+  - [x] 21.1 Add `inc/helpers.php` block-markup helpers and rewrite patterns as core blocks
+    - _Requirements: 18.1, 18.2_
+  - [x] 21.2 Register block styles in `inc/blocks.php` and style them in `theme.css`
+    - _Requirements: 18.4_
+  - [x] 21.3 Implement `inc/setup.php` (Setup_Routine and `wp cfp setup [--reset-home]`)
+    - _Requirements: 18.3, 18.5, 18.6, 18.7, 18.8_
+
+- [x] 22. Media library support in `inc/media.php`
+  - SVG uploads with unsafe-content rejection and dimension metadata; Starter_Media registry, import and fallback lookup
+  - _Requirements: 22.1, 22.2_
+
+- [x] 23. Dark colour scheme
+  - Add `assets/css/dark.css`, enqueue it with a `(prefers-color-scheme: dark)` media condition, print the `color-scheme` meta tag
+  - _Requirements: 19.1, 19.2, 19.3, 19.5_
+  - [ ]* 23.1 Run axe-core in dark mode and verify contrast
+    - _Requirements: 19.4_
+
+- [x] 24. Administration clean-up in `inc/admin.php`
+  - _Requirements: 20.1, 20.2_
+
+- [x] 25. Brand identity surfaces
+  - Branded wp-login (`inc/login.php`, `login.css`), default Site Icon and SVG favicon, `og-image.png`, `manifest.json`
+  - _Requirements: 21.1, 21.2, 21.3_
+
 ## Notes
 
-- Tasks marked with `*` are optional (tests) and can be skipped for a faster MVP, but the 34 property tests, example/snapshot, integration (CWV lab), axe-core, and smoke tests are the project's verification strategy and are recommended.
+- Tasks marked `*` are test tasks. The 34 property tests, example/snapshot, integration (CWV lab), axe-core and smoke tests together form the verification strategy.
 - Each property test runs a **minimum of 100 generated cases** with `fast-check` and is tagged `// Feature: castleford-food-pantry-website, Property N: <property text>`.
-- Pure analyzer helpers (clamp math, token resolution, validators, DOM analyzers) are extracted into `tools/analyzers/` so properties run in-memory under jsdom; layout/contrast properties use Playwright for a real layout engine.
+- Pure analyzer helpers (clamp math, token resolution, validators, DOM analyzers) live in `tools/analyzers/` so properties run in-memory under jsdom; layout/contrast properties use Playwright for a real layout engine.
 - Each task references specific requirements and, where applicable, a numbered correctness property from the design for traceability.
-- Implementation deviations from the original wording (owner-approved): GLOW is described as "supported by GLOW" (GLOW provides the venues, does not run the pantry) rather than "run by GLOW"; hero CTAs are "Find a session" / "Support us"; JSON-LD uses the `NGO` type.
-- The theme runs with no build step; `tools/` scripts (WebP conversion, poster extraction, SVGO) are developer conveniences only.
+- GLOW is described as "supported by GLOW" (GLOW provides the venues and does not run the pantry); hero CTAs are "Find a session" and "Support us"; JSON-LD uses the `NGO` type.
+- The theme runs with no build step; `tools/` scripts (WebP conversion, poster extraction, SVGO) are developer conveniences.
 - All 34 correctness properties are covered: Properties 1,4,5,6,7,8,10 (tokens), 3,31 (assets), 9 (GLOW), 11,12 (nav), 13,14,15,16,17 (hero), 25 (support), 20 (images/alt), 26 (contact), 2,21 (templates), 32,33,34 (assets/SEO), 18,19,22,23,24,27,28,29,30 (a11y/responsive).
 
 ## Task Dependency Graph
@@ -373,7 +398,9 @@ Implementation languages: the theme ships as PHP/HTML/CSS/JSON (no build step re
     { "id": 10, "tasks": ["15.3", "15.4", "15.5", "17.1", "17.2", "17.3"] },
     { "id": 11, "tasks": ["17.4", "17.5", "17.6", "17.7", "18.1"] },
     { "id": 12, "tasks": ["18.2", "18.3", "18.4", "18.5", "18.6", "18.7", "18.8", "18.9", "18.10", "18.11"] },
-    { "id": 13, "tasks": ["19.1", "19.2"] }
+    { "id": 13, "tasks": ["19.1", "19.2"] },
+    { "id": 14, "tasks": ["21.1", "21.2", "21.3", "22", "23", "24", "25"] },
+    { "id": 15, "tasks": ["23.1"] }
   ]
 }
 ```

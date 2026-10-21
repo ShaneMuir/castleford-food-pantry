@@ -25,12 +25,20 @@ The tone and structure follow established UK community-charity sites — a warm 
 | Discoverable (SEO, structured data, sitemap) | 15 |
 | Extensible to multi-page later | 16 |
 | Reproducible local env + version control | 17 |
+| Every section editable with core blocks; one-command content bootstrap | 18 |
+| Dark colour scheme | 19 |
+| Clean admin, comments removed | 20 |
+| Brand on login screen, favicon and social image | 21 |
+| Replaceable media, safe SVG uploads | 22 |
 
 ### Key Design Decisions
 
 - **theme.json as the single source of truth.** Colors, fluid type, spacing, and layout widths are declared once as tokens. Blocks reference tokens by slug (`var(--wp--preset--color--brand-green)`), so a token change propagates everywhere (Req 2.5).
 - **One block pattern per section.** The seven sections are independently registered patterns. The front page composes them in order; later, any pattern can be dropped onto a standalone page (Req 1.5, 1.6, 16.2).
 - **Progressive enhancement for the hero video.** The poster image is the LCP element and always renders first; the video is layered on top and only plays when motion is allowed and it loads in time (Req 4.5–4.7, 14.5).
+- **Content lives in the database as core blocks, seeded from patterns.** The Home page is a normal page. The Setup_Routine renders the seven section patterns into it once; after that Editors own the content. Patterns remain in the inserter for building further pages (Req 18).
+- **Starter media is imported into the media library.** Patterns reference media through `cfp_media()` helpers so logos and photos are replaceable in the CMS and fall back to theme files if an import is missing (Req 22).
+- **Dark scheme is a separate stylesheet.** `dark.css` loads with a `prefers-color-scheme: dark` media condition and overrides surfaces only; light mode is untouched (Req 19).
 - **No build step required for the theme to run.** The theme ships as plain PHP/HTML/CSS/JSON so it works in any standard WordPress install. A lightweight optional tooling layer handles image conversion and linting but is not required at runtime.
 
 ### Chosen Logo (recommendation)
@@ -60,7 +68,7 @@ graph TD
     Theme --> TJ[theme.json v3 - design tokens]
     Theme --> Templates[HTML block templates]
     Theme --> Parts[Template parts: header, footer]
-    Theme --> Patterns[Block patterns: 7 sections]
+    Theme --> Patterns[Block patterns: 7 sections + header/footer]
     Theme --> Assets[Self-hosted fonts, WebP images, video, SVG logos]
     Templates --> Parts
     Templates --> Patterns
@@ -90,40 +98,33 @@ sequenceDiagram
 
 ```
 castleford-food-pantry/                      (Git repo root; also WP install root locally)
-├─ wp-content/
-│  └─ themes/
-│     └─ castleford-food-pantry/              (the Block_Theme — tracked in Git)
-│        ├─ style.css                          # theme header (name, version, text domain)
-│        ├─ theme.json                         # schema v3 design tokens
-│        ├─ functions.php                      # enqueue, font + pattern + part registration, SEO/schema hooks
-│        ├─ screenshot.png                     # theme screenshot
-│        ├─ templates/
-│        │  ├─ front-page.html                 # Home_Template (one-page composition)
-│        │  ├─ index.html                      # required fallback template
-│        │  ├─ page.html                       # reusable standalone page template (Req 16.1)
-│        │  ├─ 404.html                         # not-found template (Req 16.4)
-│        │  └─ search.html                      # search results template (Req 16.4)
-│        ├─ parts/
-│        │  ├─ header.html                      # Site_Header part
-│        │  └─ footer.html                      # Site_Footer part
-│        ├─ patterns/
-│        │  ├─ hero.php                          # Hero_Section
-│        │  ├─ about.php                         # About_Section
-│        │  ├─ get-help.php                      # Get_Help_Section
-│        │  ├─ donate.php                        # Donate_Section
-│        │  ├─ volunteer.php                     # Volunteer_Section
-│        │  ├─ sponsors.php                      # Sponsors_Section
-│        │  └─ contact.php                       # Contact_Section
-│        ├─ assets/
-│        │  ├─ fonts/                            # self-hosted woff2 (brand + fallback metrics)
-│        │  ├─ images/                           # WebP (and SVG logos), poster.webp
-│        │  ├─ video/                            # castleford-food-pantry-video.mp4 (+ .webm optional)
-│        │  └─ css/                              # optional supplemental styles (focus, video layering)
-│        └─ inc/
-│           ├─ seo.php                           # title, meta description, OG/Twitter, JSON-LD
-│           └─ assets.php                         # preload, font-face, lazy/decoding defaults
-├─ robots.txt                                   # indexing allowed, sitemap reference (Req 15.4)
-├─ .gitignore                                    # excludes WP core, uploads, secrets (Req 17.4)
+├─ CLAUDE.md, docs/                          # project context, steering and specs
+├─ wp-content/themes/castleford-food-pantry/  (the Block_Theme — tracked in Git)
+│  ├─ style.css                               # theme header (name, version, text domain)
+│  ├─ theme.json                              # schema v3 design tokens
+│  ├─ functions.php                           # theme supports + requires every inc/ module
+│  ├─ templates/                              # front-page, index, page, 404, search (.html)
+│  ├─ parts/                                  # header.html, footer.html (one-line pattern references)
+│  ├─ patterns/                               # hero, about, get-help, donate, volunteer, sponsors, contact, site-header, site-footer
+│  ├─ assets/
+│  │  ├─ css/                                 # theme.css, dark.css, login.css
+│  │  ├─ js/hero.js                           # hero video progressive enhancement
+│  │  ├─ fonts/                               # self-hosted woff2
+│  │  ├─ images/                              # WebP, SVG logos, favicon/, og-image.png, manifest.json
+│  │  └─ video/                               # hero mp4
+│  └─ inc/
+│     ├─ helpers.php                          # cfp_asset, cfp_image_block, cfp_video_block, cfp_glow_block, cfp_relative_url
+│     ├─ assets.php                           # enqueue, preloads, pattern category, default site icon, favicon, skip link, color-scheme meta
+│     ├─ seo.php                              # title, meta description, OG/Twitter, JSON-LD, virtual robots.txt
+│     ├─ blocks.php                           # registered block styles
+│     ├─ media.php                            # SVG uploads, starter media registry and import
+│     ├─ setup.php                            # Setup_Routine, `wp cfp setup`
+│     ├─ admin.php                            # comments removal, admin bar/footer clean-up
+│     └─ login.php                            # branded wp-login
+├─ tools/                                    # analyzers, asset scripts, screenshot/axe/mobile checks
+├─ tests/                                    # property/ and smoke/ Vitest suites
+├─ website-images/, website-videos/          # source brand assets
+├─ .gitignore                                # excludes WP core, uploads, plugins, secrets (Req 17.4)
 └─ README.md
 ```
 
@@ -139,6 +140,8 @@ Build/optimization scripts (image → WebP conversion, SVGO, linting) live in a 
 | Fonts | Self-hosted woff2 via theme.json `fontFamilies` + `@font-face` | Req 1.8 (zero CDN) and Req 14.6 (`font-display: swap`). |
 | Hero video | HTML5 `<video>` with poster, muted, autoplay, playsinline | Req 4.1, 4.5, 4.6; progressive enhancement. |
 | SEO/schema | Theme-level `wp_head` output of meta + JSON-LD | Req 15; avoids coupling to a specific SEO plugin while remaining plugin-compatible. |
+| Content seeding | Idempotent PHP routine + `wp cfp setup` | Req 18; reproducible on any environment. |
+| Dark scheme | Media-conditioned stylesheet | Req 19; zero cost for light-mode visitors. |
 | Images | WebP with `srcset`/`sizes`, native lazy loading | Req 13.4, 14.3, 14.4. |
 
 ## Components and Interfaces
@@ -185,7 +188,7 @@ Each template is an HTML file of block markup. Every template references the sam
 
 ### Template Part Interfaces
 
-**Site_Header (`parts/header.html`)**
+**Site_Header (`parts/header.html`, markup in `patterns/site-header.php`)**
 
 - Skip link (first focusable element, targets `#main`) — Req 12.7.
 - Site logo block linked to home, alt text "Castleford Community Food Pantry, supported by GLOW" — Req 3.1, 10.3. The header uses the horizontal lockup (`v2-1`) where a wide format is needed, while the circular GLOW badge (`v2-2`) is the primary brand mark / favicon / social image.
@@ -195,7 +198,7 @@ Each template is an HTML file of block markup. Every template references the sam
 
 Navigation entries use the core navigation link block, whose `url` may be an in-page anchor (`#donate`) at launch or a full page URL later, with no structural change to the header (Req 3.6, 16.3).
 
-**Site_Footer (`parts/footer.html`)**
+**Site_Footer (`parts/footer.html`, markup in `patterns/site-footer.php`)**
 
 - GLOW_Branding block (multicolor wordmark + "supported by GLOW") — Req 10.1, 10.2.
 - Contact summary (email `castlefordcommunityfoodpantry@gmail.com`, the named phone contacts Laura / Kim / Tracy, and venue addresses) and social links — Req 11.1, 11.5.
@@ -254,8 +257,34 @@ Letter colors map to tokens: `glow-g` → `#3B8FE0`, `glow-l` → `#EE3B24`, `gl
 
 ### functions.php / inc interfaces
 
-- `inc/assets.php`: registers `@font-face` with `font-display: swap`, preloads the hero poster and the primary brand font woff2, sets default `loading="lazy"` and `decoding="async"` for content images (Req 14.4, 14.6).
-- `inc/seo.php`: outputs `<title>`, meta description, Open Graph + Twitter Card tags, and a `LocalBusiness`/`CommunityService`-style JSON-LD block on `wp_head` (Req 15.1–15.3). Guards against duplicate output if an SEO plugin is active.
+- `inc/assets.php`: enqueues `theme.css`, the media-conditioned `dark.css` and `hero.js` (front page only), preloads the hero poster and primary heading font, registers the `cfp` pattern category, supplies the default Site Icon and SVG favicon, prints the `color-scheme` meta tag and the skip link (Req 12.7, 14.5, 14.6, 19, 21.2).
+- `inc/seo.php`: outputs `<title>`, meta description, canonical, Open Graph + Twitter Card tags and an `NGO` JSON-LD block on the front page (Req 15.1–15.3); serves a virtual `robots.txt` with the sitemap URL through the `robots_txt` filter (Req 15.4). Skips output when an SEO plugin is active.
+- `inc/helpers.php`: block-markup helpers that emit exactly what the editor saves (`cfp_image_block`, `cfp_video_block`, `cfp_glow_block`), `cfp_asset()` and `cfp_relative_url()`.
+- `inc/media.php`: SVG upload support with an unsafe-content filter and dimension metadata, the Starter_Media registry (`cfp_starter_media()`), `cfp_media()` lookup with theme-file fallback, and `cfp_import_starter_media()` (Req 22).
+- `inc/blocks.php`: registers the block styles listed in Req 18.4. Styles are `is-style-cfp-*` classes defined in `theme.css`.
+- `inc/setup.php`: `cfp_run_setup( $reset_home )` implements the Setup_Routine; `CFP_SETUP_VERSION` is bumped to re-run it on the next admin load; the WP-CLI command `wp cfp setup [--reset-home]` wraps it (Req 18.5–18.7).
+- `inc/admin.php`: comments removal and admin bar/footer clean-up (Req 20).
+- `inc/login.php`: wp-login logo, link, text and `login.css` (Req 21.1).
+
+### CMS Editability and Setup
+
+```mermaid
+graph TD
+    Activate[Theme activation / first admin load / wp cfp setup] --> Media[Import Starter_Media into media library]
+    Media --> Menus[Create primary + footer wp_navigation posts]
+    Menus --> Logo[Set Site Logo if unset]
+    Logo --> Home[Create Home page from 7 patterns if missing]
+    Home --> Front[Set as static front page]
+    Front --> Comments[Close comments]
+```
+
+- Patterns are PHP files that print block markup identical to what the editor serialises. The Setup_Routine renders them with output buffering and saves the result as page content with KSES filters removed (the markup is trusted theme output and includes the map iframe).
+- `cfp_relative_url()` rewrites same-site media URLs to root-relative paths before saving, so content survives host changes.
+- `CFP_SETUP_VERSION` gates the once-per-version admin-load run.
+
+### Dark Scheme
+
+`assets/css/dark.css` redefines surface tokens (`--cfp-d-bg`, `--cfp-d-alt`, `--cfp-d-card`, text, muted, link, line) and overrides the `is-style-cfp-*` section styles. The hero, green section, sponsors and footer keep brand colours; the header stays cream so the navy logo text keeps contrast. `<meta name="color-scheme" content="light dark">` stops browsers force-darkening the page.
 
 ## Data Models
 
@@ -646,7 +675,7 @@ Representative mapping:
 
 ### Example and Snapshot Tests
 
-For specific, non-input-varying behavior and markup presence (template composition order, registered pattern slugs, header logo/CTA presence, section content statements, skip link, `lang` attribute, OG/Twitter tags, sitemap/robots, existence of page/404/search templates). Block-markup snapshots guard against regressions in `front-page.html` and the two template parts.
+For specific, non-input-varying behavior and markup presence (template composition order, registered pattern slugs, header logo/CTA presence, section content statements, skip link, `lang` attribute, OG/Twitter tags, sitemap/robots, existence of page/404/search templates). Block-markup snapshots guard against regressions in `front-page.html` and the header and footer patterns.
 
 ### Integration Tests
 
